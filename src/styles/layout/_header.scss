@@ -1,0 +1,30 @@
+.container{
+    padding: 0;
+}
+.myNavbar{
+    height: 60px;
+    background-color: #13151F;
+    color: $color-white;
+}
+.navbar-brand img{
+    width: 200px;
+}
+.navbar{
+    padding: 0;
+}
+.dangnhap {
+    .form-group{
+        margin: 0;
+    }
+}
+.navbar-dark {
+    .navbar-nav {
+        .nav-link {
+            color: $color-chuNavbar;
+            &:hover,&:active,&:focus{
+                color: $color-main;
+            }
+        }
+    }
+}
+
