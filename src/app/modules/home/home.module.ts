@@ -8,6 +8,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 const homeLayoutRoutes: Routes = [
@@ -20,15 +21,9 @@ const homeLayoutRoutes: Routes = [
   declarations: [HomeTemplateComponent, HomeLayoutComponent, HeaderComponent, FooterComponent, CarouselComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(homeLayoutRoutes)
-  ],
-  exports: [
-    HomeTemplateComponent,
-    HomeLayoutComponent,
-    HeaderComponent,
-    FooterComponent,
-    CarouselComponent
-
+    RouterModule.forChild(homeLayoutRoutes),
+    OwlModule,
+    
   ]
 })
 export class HomeModule { }

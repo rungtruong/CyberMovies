@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MovieService } from 'src/app/_core/services/movie.service';
+
+import { OwlCarousel } from 'ngx-owl-carousel';
+
 
 @Component({
   selector: 'app-carousel',
@@ -6,10 +10,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
+  dsPhim: any = [
+    { HinhAnh: "../../../../assets/img/slide1.jpg" },
+    { HinhAnh: "../../../../assets/img/slide2.jpg" },
+    { HinhAnh: "../../../../assets/img/slide3.jpg" },
+    { HinhAnh: "../../../../assets/img/slide4.jpg" },
+  ];
+  // Option owl Carousel
+  mySlideOptions = { items: 1, dots: true, nav: false, autoplay: false };
+  myCarouselOptions = { items: 3, dots: true, nav: true };
 
-  constructor() { }
- 
+  constructor(private movieService: MovieService) {
+    movieService.layDanhSachPhim().subscribe(
+      (data) => {
+        // this.dsPhim = data;
+        // console.log(data);
+
+      }
+    )
+  }
+
+
+
   ngOnInit() {
   }
+
+
+  @ViewChild('owlElement') owlElement: OwlCarousel
+
+
+  fun() {
+    this.owlElement.next([200])
+    //duration 200ms
+  }
+
 
 }
