@@ -2,12 +2,12 @@
     padding: 0;
 }
 .myNavbar{
-    height: 60px;
+    height: $heigh-navbar;
     background-color: $color-nenNavbar;
     color: $color-white;
 }
 .navbar-brand img{
-    width: 200px;
+    width: $width-logo;
 }
 .navbar{
     padding: 0;

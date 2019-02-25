@@ -1,8 +1,18 @@
 /*Màu*/
 $color-main: #F56E33; //Tông màu chính của trang
 $color-white: #ffffff; //Màu trắng
-$color-chuNavbar:rgba(255,255,255,.7); //Màu chữ navbar
-$color-nenNavbar:rgba(19, 21, 31, 0.9);
+
+$color-chuNavbar:rgba(255,255,255,.9); //Màu chữ navbar
+$color-nenNavbar:#13151F;
+
+/*Chiều rộng*/
+$width-logo: 200px; //Chiều rộng ảnh logo
+
+/*Chiều cao*/
+$heigh-navbar: 60px; //Chiều cao navbar
+
+/*Carousel*/
+
 /*Font chữ*/
 $font-main: 'Kodchasan', sans-serif;
 

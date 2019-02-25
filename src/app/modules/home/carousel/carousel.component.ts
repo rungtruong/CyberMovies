@@ -16,8 +16,10 @@ export class CarouselComponent implements OnInit {
     { HinhAnh: "../../../../assets/img/slide3.jpg" },
     { HinhAnh: "../../../../assets/img/slide4.jpg" },
   ];
+  // dsPhim: any = [];
+  srcTrailer = "https://www.youtube.com/embed/8-BIvwSwOfY";
   // Option owl Carousel
-  mySlideOptions = { items: 1, dots: true, nav: false, autoplay: false };
+  mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = { items: 3, dots: true, nav: true };
 
   constructor(private movieService: MovieService) {
@@ -31,18 +33,22 @@ export class CarouselComponent implements OnInit {
   }
 
 
-
+  playTrailer(Trailer) {
+    console.log(Trailer);
+    this.srcTrailer = Trailer;
+  }
   ngOnInit() {
   }
 
 
-  @ViewChild('owlElement') owlElement: OwlCarousel
+  @ViewChild('owlElement') owlElement: OwlCarousel;
 
 
   fun() {
     this.owlElement.next([200])
     //duration 200ms
   }
+
 
 
 }

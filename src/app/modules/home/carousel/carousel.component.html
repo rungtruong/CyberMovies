@@ -5,30 +5,25 @@
       <div>
         <img src={{phim.HinhAnh}} />
         <!-- Button trigger modal -->
-        <button type="button" class="btn playTrailer" data-toggle="modal" data-target="#modalTrailer">
+        <button type="button" class="btn playTrailer" data-toggle="modal" data-target="#modalTrailer"
+          (click)="playTrailer(phim.Trailer)">
           <i class="fa fa-play-circle"></i>
         </button>
       </div>
     </div>
   </owl-carousel>
 
+</div>
 
   <!-- Modal -->
-  <!-- <div id="modalTrailer" class="modal fade" id="modalTrailer" tabindex="-1" role="dialog">
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
+  <div id="modalTrailer" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <img src="../../../../assets/img/close.png" alt="">
           </button>
-          <iframe width="100%" height="100%" allowfullscreen="" frameborder="0"
-            src="https://www.youtube.com/embed/CPkQui4g14Y?autoplay=0">
-          </iframe>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8-BIvwSwOfY" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
-  </div> -->
-
-
-</div>
