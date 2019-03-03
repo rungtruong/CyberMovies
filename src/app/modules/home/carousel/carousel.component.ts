@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
-
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { OwlCarousel } from 'ngx-owl-carousel';
 
 
@@ -17,27 +17,29 @@ export class CarouselComponent implements OnInit {
     { HinhAnh: "../../../../assets/img/slide4.jpg" },
   ];
   // dsPhim: any = [];
-  srcTrailer = "https://www.youtube.com/embed/8-BIvwSwOfY";
+  srcTrailer: string = 'https://www.youtube.com/embed/Mh2ebPxhoLs?autoplay=1';
+  videoUrl: SafeResourceUrl;
   // Option owl Carousel
   mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = { items: 3, dots: true, nav: true };
 
-  constructor(private movieService: MovieService) {
-    movieService.layDanhSachPhim().subscribe(
-      (data) => {
-        // this.dsPhim = data;
-        // console.log(data);
+  constructor(private movieService: MovieService, private sanitizer: DomSanitizer) {
 
-      }
-    )
+    this.videoUrl = sanitizer.bypassSecurityTrustResourceUrl(this.srcTrailer);
+
   }
-
 
   playTrailer(Trailer) {
-    console.log(Trailer);
-    this.srcTrailer = Trailer;
+    // console.log(Trailer);
+    // this.srcTrailer = Trailer;
   }
   ngOnInit() {
+    this.movieService.layDanhSachPhim().subscribe(
+      (data) => {
+        // this.dsPhim = data;
+        console.log(data);
+
+      });
   }
 
 
