@@ -9,6 +9,10 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { OwlModule } from 'ngx-owl-carousel';
+import { MoviesListComponent } from './movies-list/movies-list.component';
+import { NowShowingComponent } from './movies-list/now-showing/now-showing.component';
+import { MovieItemComponent } from './movies-list/movie-item/movie-item.component';
+import { ComingSoonComponent } from './movies-list/coming-soon/coming-soon.component';
 
 
 const homeLayoutRoutes: Routes = [
@@ -18,7 +22,7 @@ const homeLayoutRoutes: Routes = [
     ]
   }];
 @NgModule({
-  declarations: [HomeTemplateComponent, HomeLayoutComponent, HeaderComponent, FooterComponent, CarouselComponent],
+  declarations: [HomeTemplateComponent, HomeLayoutComponent, HeaderComponent, FooterComponent, CarouselComponent, MoviesListComponent, NowShowingComponent, MovieItemComponent, ComingSoonComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(homeLayoutRoutes),
