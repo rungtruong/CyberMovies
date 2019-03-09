@@ -18,6 +18,9 @@ const adminRoutes: Routes = [
       { path: 'moviemanage', component: MoviesManagementComponent },
       { path: 'movieadd', component: MovieAddComponent },
       { path: 'movieedit/:id', component: MovieEditComponent },
+      { path: 'usermanage', component: UserLayoutComponent },
+      { path: 'useradd', component: UserAddComponent },
+      { path: 'useredit', component: UserEditComponent },
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: '' }

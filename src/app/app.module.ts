@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 const appRoutes: Routes = [
   { path: '', loadChildren: () => HomeModule },
+  { path: 'home', loadChildren: () => HomeModule },
   { path: 'admin', loadChildren: () => AdminModule }
 ];
 @NgModule({

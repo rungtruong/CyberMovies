@@ -10,7 +10,8 @@
           <h3 class="box-title ">
             <i class="fa fa-list-alt mr-2"></i>Danh sách phim
           </h3>
-          <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Thêm</button>
+          <button type="button" class="btn btn-success" routerLink="/admin/movieadd"><i class="fa fa-plus"></i>
+            Thêm</button>
         </div>
       </div>
 
@@ -28,14 +29,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let movie of movieArray">
-              <td scope="row" style="width: 10%">{{movie.MaPhim}}</td>
-              <td class="w-25">{{movie.TenPhim}}</td>
-              <td class="w-25">{{movie.NgayKhoiChieu}}</td>
-              <td><img [src]="movie.HinhAnh" alt=""> </td>
-              <td class="w-50 text-justify">{{movie.MoTa}}</td>
-              <td >
+              <td class="align-middle" scope="row" style="width: 10%">{{movie.MaPhim}}</td>
+              <td class="w-25 align-middle">{{movie.TenPhim}}</td>
+              <td class="w-25 align-middle">{{movie.NgayKhoiChieu}}</td>
+              <td class="align-middle"><img [src]="movie.HinhAnh" alt=""> </td>
+              <td class="w-50 text-justify align-middle">{{movie.MoTa}}</td>
+              <td class="align-middle">
                 <div class="btn-group">
-                  <button class="btn btn-success" title="Sửa Phim" routerLink="/admin/movieedit/{{movie.MaPhim}}"  >
+                  <button class="btn btn-success" title="Sửa Phim" routerLink="/admin/movieedit/{{movie.MaPhim}}">
                     <i class="fa fa-edit"></i>
                   </button>
                   <button class="btn btn-danger" title="Xóa Phim" (click)="deleteMovie(movie.MaPhim,movie.TenPhim)">
