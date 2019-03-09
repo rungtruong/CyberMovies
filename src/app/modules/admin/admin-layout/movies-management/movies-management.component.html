@@ -1,0 +1,52 @@
+<app-breadcrumb [data]="breadcrumbData"></app-breadcrumb>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Default box -->
+      <div class="box box-primary">
+        <div class="box-header d-flex align-items-center justify-content-between m-1">
+          <h3 class="box-title ">
+            <i class="fa fa-certificate mr-3"></i>Danh sách phim
+          </h3>
+          <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Add</button>
+        </div>
+      </div>
+
+      <div class="box-body">
+        <table class="table table-responsive-md table-striped">
+          <thead>
+            <tr>
+              <th>Mã Phim</th>
+              <th>Tên Phim</th>
+              <th>Ngày Khởi Chiếu</th>
+              <th>Hình Ảnh</th>
+              <th>Mô Tả</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let movie of movieArray">
+              <td scope="row" style="width: 10%">{{movie.MaPhim}}</td>
+              <td class="w-25">{{movie.TenPhim}}</td>
+              <td class="w-25">{{movie.NgayKhoiChieu}}</td>
+              <td><img [src]="movie.HinhAnh" alt=""> </td>
+              <td class="w-50 text-justify">{{movie.MoTa}}</td>
+              <td >
+                <div class="btn-group">
+                  <button class="btn btn-success" title="Sửa Phim" routerLink="/admin/movieedit"  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger" title="Xóa Phim">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
