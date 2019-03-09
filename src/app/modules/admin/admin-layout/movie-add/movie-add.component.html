@@ -8,7 +8,7 @@
       <div class="box box-primary">
         <div class="box-header d-flex align-items-center justify-content-between m-1">
           <h3 class="box-title ">
-            <i class="fa fa-plus mr-1"></i>Thêm Phim
+            <i class="fa fa-file-video-o mr-2"></i>Thêm Phim
           </h3>
           <!-- <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Add</button> -->
         </div>
@@ -20,7 +20,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="">Mã Phim</label>
-                <input type="text" name="MaPhim" [(ngModel)]="Movie.MaPhim" id="" class="form-control">
+                <input type="number" name="MaPhim" [(ngModel)]="Movie.MaPhim" id="" class="form-control">
               </div>
               <div class="form-group">
                 <label for="">Tên Phim</label>
@@ -28,7 +28,7 @@
               </div>
               <div class="form-group">
                 <label for="">Ngày Khởi Chiếu</label>
-                <input type="datetime-local" value="2013-10-24T20:36:00" step="1" name="NgayKhoiChieu"
+                <input type="date" value="2013-10-24T20:36:00" step="1" name="NgayKhoiChieu"
                   [(ngModel)]="Movie.NgayKhoiChieu" id="" class="form-control">
               </div>
               <div class="form-group">
@@ -38,30 +38,30 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="">Đánh Giá</label>
-                <input type="text" name="DanhGia" [(ngModel)]="Movie.DanhGia" id="" class="form-control">
+                <label for="">Mã Nhóm: </label>
+                <input type="text" class="form-control" disabled value="{{Movie.MaNhom}}">
               </div>
               <div class="form-group">
-                <label for="">Mã Nhóm</label>
-                <input type="text" disabled name="MaNhom" [(ngModel)]="Movie.MaNhom" id="" class="form-control">
+                <label for="">Đánh Giá</label>
+                <input type="text" value="{{Movie.DanhGia}}" disabled class="form-control">
               </div>
               <div class="form-group">
                 <label for="">Hình Ảnh</label>
-                <input type="file" accept="image/*" name="HinhAnh" id="imgMovie" class="form-control-file">
+                <input type="url" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" id="imgMovie" class="form-control">
               </div>
               <div class="form-group">
                 <label for="">Trailer</label>
-                <input type="text" name="Trailer" [(ngModel)]="Movie.Trailer" id="" class="form-control">
+                <input type="url" name="Trailer" [(ngModel)]="Movie.Trailer" id="" class="form-control">
               </div>
             </div>
           </div>
         </form>
         <div>
-          <button class="btn btn-success mr-2" title="Sửa Phim" (click)="addMovie()">
+          <button class="btn btn-success mr-2" title="Thêm Phim" (click)="addMovie()">
             <i class="fa fa-plus mr-1"></i> Thêm
           </button>
-          <button class="btn btn-danger" title="Xóa Phim">
-            <i class="fa fa-trash mr-1"></i>Xóa
+          <button class="btn btn-danger" title="Hủy Thêm" (click)="onCancel()">
+            <i class="fa fa-trash mr-1"></i>Hủy
           </button>
         </div>
       </div>

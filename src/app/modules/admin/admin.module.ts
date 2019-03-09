@@ -7,6 +7,9 @@ import { MovieAddComponent } from './admin-layout/movie-add/movie-add.component'
 import { BreadcrumbModule } from 'src/app/_core/shareComponent/breadcrumb/breadcrumb.module';
 import { MovieEditComponent } from './admin-layout/movie-edit/movie-edit.component';
 import { FormsModule } from '@angular/forms';
+import { UserLayoutComponent } from './admin-layout/user-layout/user-layout.component';
+import { UserAddComponent } from './admin-layout/user-add/user-add.component';
+import { UserEditComponent } from './admin-layout/user-edit/user-edit.component';
 
 const adminRoutes: Routes = [
   {
@@ -14,14 +17,14 @@ const adminRoutes: Routes = [
       { path: '', component: MoviesManagementComponent },
       { path: 'moviemanage', component: MoviesManagementComponent },
       { path: 'movieadd', component: MovieAddComponent },
-      { path: 'movieedit', component: MovieEditComponent },
+      { path: 'movieedit/:id', component: MovieEditComponent },
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [AdminLayoutComponent, MoviesManagementComponent, MovieAddComponent, MovieEditComponent],
+  declarations: [AdminLayoutComponent, MoviesManagementComponent, MovieAddComponent, MovieEditComponent, UserLayoutComponent, UserAddComponent, UserEditComponent],
   imports: [
     CommonModule,
     BreadcrumbModule,

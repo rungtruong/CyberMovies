@@ -1,3 +1,70 @@
-<p>
-  movie-edit works!
-</p>
+<app-breadcrumb [data]="breadcrumbData"></app-breadcrumb>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Default box -->
+      <div class="box box-primary">
+        <div class="box-header d-flex align-items-center justify-content-between m-1">
+          <h3 class="box-title ">
+            <i class="fa fa-file-video-o mr-2"></i>Sửa Phim
+          </h3>
+          <!-- <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Add</button> -->
+        </div>
+      </div>
+
+      <div class="box-body">
+        <form action="" id="formEditMovie">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Mã Phim</label>
+                <input type="number" name="MaPhim" [(ngModel)]="Movie.MaPhim" disabled class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Tên Phim</label>
+                <input type="text" name="TenPhim" [(ngModel)]="Movie.TenPhim" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Ngày Khởi Chiếu</label>
+                <input type="date" step="1" name="NgayKhoiChieu"
+                  [(ngModel)]="Movie.NgayKhoiChieu" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Mô Tả</label>
+                <textarea class="form-control" name="MoTa" [(ngModel)]="Movie.MoTa" id="" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Mã Nhóm: </label>
+                <input type="text" class="form-control" disabled value="{{Movie.MaNhom}}">
+              </div>
+              <div class="form-group">
+                <label for="">Đánh Giá</label>
+                <input type="text" class="form-control" name="DanhGia" [(ngModel)]="Movie.DanhGia" disabled>
+              </div>
+              <div class="form-group">
+                <label for="">Hình Ảnh</label>
+                <input type="text" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" id="imgMovie" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Trailer</label>
+                <input type="text" name="Trailer" [(ngModel)]="Movie.Trailer" id="" class="form-control">
+              </div>
+            </div>
+          </div>
+        </form>
+        <div>
+          <button class="btn btn-success mr-2" title="Thêm Phim" (click)="editMovie()">
+            <i class="fa fa-plus mr-1"></i> Lưu
+          </button>
+          <button class="btn btn-danger" title="Hủy Thêm" (click)="onCancel()">
+            <i class="fa fa-trash mr-1"></i>Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

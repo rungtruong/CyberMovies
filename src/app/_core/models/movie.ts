@@ -1,26 +1,14 @@
-interface MovieInterface {
-    MaPhim: string;
+export class Movie {
+    MaPhim: number;
     TenPhim: string;
     Trailer: string;
     HinhAnh: string;
     MoTa: string;
     MaNhom: string;
     NgayKhoiChieu: string;
-    DanhGia: string;
-    // Quantity?: number;
-}
-
-export class Movie implements MovieInterface {
-    MaPhim: string;
-    TenPhim: string;
-    Trailer: string;
-    HinhAnh: string;
-    MoTa: string;
-    MaNhom: string;
-    NgayKhoiChieu: string;
-    DanhGia: string;
+    DanhGia: number;
     Quantity?: number;
-    constructor(maphim: string, tenphim: string, trailer: string, hinhanh: string, mota: string, manhom: string, ngaychieu: string, danhgia: string) {
+    constructor(maphim: number, tenphim: string, trailer: string, hinhanh: string, mota: string, manhom: string, ngaychieu: string, danhgia: number) {
         this.MaPhim = maphim;
         this.TenPhim = tenphim;
         this.Trailer = trailer;
@@ -28,12 +16,6 @@ export class Movie implements MovieInterface {
         this.MoTa = mota;
         this.MaNhom = manhom;
         this.NgayKhoiChieu = ngaychieu;
-        this.DanhGia = danhgia;
-        
+        this.DanhGia = danhgia;        
     }
-    // Neu co phuong thuc thi ghi o day
-    /*example(){
-
-    }*/
-
 }

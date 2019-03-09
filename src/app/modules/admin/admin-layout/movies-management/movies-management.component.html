@@ -5,12 +5,12 @@
   <div class="row">
     <div class="col-lg-12">
       <!-- Default box -->
-      <div class="box box-primary">
-        <div class="box-header d-flex align-items-center justify-content-between m-1">
+      <div class="box box-primary ">
+        <div class="box-header d-flex align-items-center justify-content-between m-1 mb-2">
           <h3 class="box-title ">
-            <i class="fa fa-certificate mr-3"></i>Danh sách phim
+            <i class="fa fa-list-alt mr-2"></i>Danh sách phim
           </h3>
-          <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Add</button>
+          <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Thêm</button>
         </div>
       </div>
 
@@ -35,10 +35,10 @@
               <td class="w-50 text-justify">{{movie.MoTa}}</td>
               <td >
                 <div class="btn-group">
-                  <button class="btn btn-success" title="Sửa Phim" routerLink="/admin/movieedit"  >
+                  <button class="btn btn-success" title="Sửa Phim" routerLink="/admin/movieedit/{{movie.MaPhim}}"  >
                     <i class="fa fa-edit"></i>
                   </button>
-                  <button class="btn btn-danger" title="Xóa Phim">
+                  <button class="btn btn-danger" title="Xóa Phim" (click)="deleteMovie(movie.MaPhim,movie.TenPhim)">
                     <i class="fa fa-trash"></i>
                   </button>
                 </div>
