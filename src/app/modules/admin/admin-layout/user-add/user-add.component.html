@@ -1,3 +1,74 @@
-<p>
-  user-add works!
-</p>
+<app-breadcrumb [data]="breadcrumbData"></app-breadcrumb>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Default box -->
+      <div class="box box-primary">
+        <div class="box-header d-flex align-items-center justify-content-between m-1">
+          <h3 class="box-title ">
+            <i class="fa fa-user-plus mr-2"></i>Thêm Người Dùng
+          </h3>
+          <!-- <button type="button" class="btn btn-success" routerLink="/admin/movieadd">Add</button> -->
+        </div>
+      </div>
+
+      <div class="box-body">
+        <form action="" id="formAddUser" enctype='application/json'>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Họ Tên</label>
+                <input type="text" name="HoTen" [(ngModel)]="User.HoTen" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Tài Khoản</label>
+                <input type="text" name="TaiKhoan" [(ngModel)]="User.TaiKhoan" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Mật Khẩu</label>
+                <input type="text" name="MatKhau" [(ngModel)]="User.MatKhau" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="">Nhập Lại Mật Khẩu</label>
+                  <input type="text" id="NhapLaiMatKhau" class="form-control">
+                </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" name="Email" [(ngModel)]="User.Email" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Số Điện Thoại</label>
+                <input type="number" onkeydown="return event.keyCode !== 69" name="SoDT" [(ngModel)]="User.SoDT" id=""
+                  class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Mã Nhóm</label>
+                <input type="text" name="MaNhom" [(ngModel)]="User.MaNhom" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Loại Người Dùng</label>
+                <select class="form-control" name="MaLoaiNguoiDung" [(ngModel)]="User.MaLoaiNguoiDung">
+                  <option value="KhachHang">Khách Hàng</option>
+                  <option value="QuanTri">Quản Trị</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="mt-3">
+          <button class="btn btn-success mr-2" title="Thêm Người Dùng" (click)="addUser()">
+            <i class="fa fa-plus mr-1"></i> Thêm
+          </button>
+          <button class="btn btn-danger" title="Hủy Thêm" (click)="onCancel()">
+            <i class="fa fa-trash mr-1"></i>Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

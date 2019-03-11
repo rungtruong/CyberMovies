@@ -35,13 +35,11 @@ export class MoviesManagementComponent implements OnInit {
 
   deleteMovie(id, name) {
     console.log(id);
-
     this.movieService.xoaPhim(id).subscribe(data => {
       console.log(data);
       if (data === "Xóa phim thành công!") {
         this.toastr.success(`Xóa phim ${name} thành công!`);
-        this.getMovies();
-        this.router.navigate(['/moviemanage']);
+        this.getMovies();        
       }
     })
 

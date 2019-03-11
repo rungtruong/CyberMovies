@@ -1,0 +1,57 @@
+<app-breadcrumb [data]="breadcrumbData"></app-breadcrumb>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Default box -->
+      <div class="box box-primary ">
+        <div class="box-header d-flex align-items-center justify-content-between m-1 mb-2">
+          <h3 class="box-title ">
+            <i class="fa fa-list-alt mr-2"></i>Danh sách người dùng
+          </h3>
+          <button type="button" class="btn btn-success" routerLink="/admin/useradd"><i class="fa fa-plus"></i>
+            Thêm</button>
+        </div>
+      </div>
+
+      <div class="box-body">
+        <table class="table table-responsive-md table-striped">
+          <thead>
+            <tr>
+              <th>Họ Tên</th>
+              <th>Tài Khoản</th>
+              <th>Mật Khẩu</th>
+              <th>Email</th>
+              <th>Số ĐT</th>
+              <th>Mã Nhóm</th>
+              <th>Mã Loại Người Dùng</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userArray">
+              <td class="align-middle" scope="row">{{user.HoTen}}</td>
+              <td class="align-middle">{{user.TaiKhoan}}</td>
+              <td class="align-middle">{{user.MatKhau}}</td>
+              <td class="align-middle">{{user.Email}}</td>
+              <td class="align-middle">{{user.SoDT}}</td>
+              <td class="align-middle">{{user.MaNhom}}</td>
+              <td class="align-middle">{{user.MaLoaiNguoiDung}}</td>
+              <td class="align-middle">
+                <div class="btn-group">
+                  <button class="btn btn-success" title="Sửa Tài Khoản" routerLink="/admin/useredit/{{user.TaiKhoan}}">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger" title="Xóa Tài Khoản" (click)="deleteUser(user.TaiKhoan)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
