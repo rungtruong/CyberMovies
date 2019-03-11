@@ -15,7 +15,7 @@
       </div>
 
       <div class="box-body">
-        <form action="" id="formAddMovie">
+        <form action="" id="formAddMovie" enctype='application/json'>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -41,13 +41,19 @@
                 <label for="">Mã Nhóm: </label>
                 <input type="text" class="form-control" disabled value="{{Movie.MaNhom}}">
               </div>
+
               <div class="form-group">
                 <label for="">Đánh Giá</label>
                 <input type="text" value="{{Movie.DanhGia}}" disabled class="form-control">
               </div>
               <div class="form-group">
-                <label for="">Hình Ảnh</label>
-                <input type="url" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" id="imgMovie" class="form-control">
+
+                <div class="form-group">
+                  <label for="">Hình Ảnh</label>
+                  <input type="url" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" class="form-control">
+                  <input type="file" accept="image/*" id="imgMovie" multiple class="form-control-file mt-2">
+                </div>
+
               </div>
               <div class="form-group">
                 <label for="">Trailer</label>

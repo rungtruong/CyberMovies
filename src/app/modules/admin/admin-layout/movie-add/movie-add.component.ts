@@ -135,30 +135,30 @@ export class MovieAddComponent implements OnInit {
 
   }
   validate() {
-    if (!this.Movie.MaPhim) {
-      this.toastr.error("Bạn chưa nhập mã phim!");
-      return false;
-    }
-    if (!this.Movie.TenPhim) {
-      this.toastr.error("Bạn chưa nhập tên phim!");
-      return false;
-    }
-    if (!this.Movie.NgayKhoiChieu) {
-      this.toastr.error("Bạn chưa nhập ngày khỏi chiếu!");
-      return false;
-    }
-    if (!this.Movie.MoTa) {
-      this.toastr.error("Bạn chưa nhập mô tả về phim!");
-      return false;
-    }
-    if (!this.Movie.HinhAnh) {
-      this.toastr.error("Bạn chưa nhập link hình ảnh!");
-      return false;
-    }
-    if (!this.Movie.Trailer) {
-      this.toastr.error("Bạn chưa nhập link trailer phim!");
-      return false;
-    }
+    // if (!this.Movie.MaPhim) {
+    //   this.toastr.error("Bạn chưa nhập mã phim!");
+    //   return false;
+    // }
+    // if (!this.Movie.TenPhim) {
+    //   this.toastr.error("Bạn chưa nhập tên phim!");
+    //   return false;
+    // }
+    // if (!this.Movie.NgayKhoiChieu) {
+    //   this.toastr.error("Bạn chưa nhập ngày khỏi chiếu!");
+    //   return false;
+    // }
+    // if (!this.Movie.MoTa) {
+    //   this.toastr.error("Bạn chưa nhập mô tả về phim!");
+    //   return false;
+    // }
+    // if (!this.Movie.HinhAnh && $('#imgMovie')[0].files[0] == 0) {
+    //   this.toastr.error("Bạn chưa nhập link hình ảnh!");
+    //   return false;
+    // }
+    // if (!this.Movie.Trailer) {
+    //   this.toastr.error("Bạn chưa nhập link trailer phim!");
+    //   return false;
+    // }
     return true;
   }
   addMovie() {
@@ -167,24 +167,28 @@ export class MovieAddComponent implements OnInit {
       formData.append("MaNhom", "GP06");
       formData.append("DanhGia", this.Movie.DanhGia);
       formData.append("LichChieu", this.lichChieu);
-      let object = {};
+      let objectMovie = {};
       formData.forEach(function (value, key) {
-        object[key] = value;
+        objectMovie[key] = value;
       });
-      // console.log("****");
-      // console.log(object);
-      this.movieService.themPhim(object).subscribe((data) => {
-        console.log(data);
+      // upload movie to server
+      this.movieService.themPhim(objectMovie).subscribe((data) => {
+        this.toastr.success(`Thêm phim ${data.TenPhim} thành công!`);
 
-        if (data.MaPhim) {
-          this.toastr.success(`Thêm phim ${data.TenPhim} thành công!`);
-          this.router.navigate(['/admin/moviemanage']);
-        }
+        //upload file to server
+        let fileformdata = new FormData();
+        fileformdata.append("TenPhim", this.Movie.TenPhim);
+        fileformdata.append("Files", $('#imgMovie')[0].files[0]);
+        this.movieService.uploadFileAnhPhim(fileformdata).subscribe(data => {
+          console.log(data);
+          if (data == true) {
+            this.router.navigate(['/admin/moviemanage']);
+          }
+        })
       })
+
     }
   }
-
-
   onCancel() {
     this.router.navigate(['/admin/moviemanage']);
   }

@@ -25,6 +25,14 @@ export class MovieService {
     header.append('Content-Type', 'application/json;charset=UTF-8');
     const observable = this.http.post(linkApi, data, { headers: header });
     return observable;
+    
+  }
+  public uploadFileAnhPhim(data): Observable<any> {
+    const linkApi = `http://svcy2.myclass.vn/api/QuanLyPhim/UploadFile`;
+    const header: HttpHeaders = new HttpHeaders(); //Cho biet dinh dang du lieu truyen di
+    header.append('Content-Type', 'application/json;charset=UTF-8');
+    const observable = this.http.post(linkApi, data, { headers: header });
+    return observable;
   }
   public suaPhim(data): Observable<any> {
     const linkApi = `http://svcy2.myclass.vn/api/QuanLyPhim/CapNhatPhim`;
@@ -33,10 +41,11 @@ export class MovieService {
     const observable = this.http.post(linkApi, data, { headers: header });
     return observable;
   }
-  public xoaPhim(id:number): Observable<any> {
+  public xoaPhim(id: number): Observable<any> {
     let response: any = this.http.delete(`http://svcy2.myclass.vn/api/QuanLyPhim/XoaPhim?MaPhim=${id}`);
     return response;
   }
+
 
 }
 

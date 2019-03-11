@@ -1,7 +1,17 @@
 <div class="card m-2 cardMovieItem">
-  <img class="card-img-top" src="{{movie.HinhAnh}}" alt="">
-  <div class="card-body">
-    <h4 class="card-title">{{movie.TenPhim}}</h4>
-    <p class="card-text">{{movie.NgayKhoiChieu}}</p>
+  <div class="cardMovieItem-img">
+    <img src="{{movie.HinhAnh}}" alt="Image Movie">
+  </div>
+  <div class="cardMovieItem-body">
+    <h4 class="cardMovieItem-title pt-2">{{movie.TenPhim}}</h4>
+    <p class="cardMovieItem-text pt-2">{{movie.NgayKhoiChieu}}</p>
+  </div>
+</div>
+
+<div class="card m-2 cardMovieItem" *ngIf="false">
+  <img src="{{movie.HinhAnh}}" alt="Image Movie">
+  <div class="cardMovieItem-body">
+    <h4 class="cardMovieItem-title p-2">{{movie.TenPhim}}</h4>
+    <p class="cardMovieItem-text p-2">{{movie.NgayKhoiChieu}}</p>
   </div>
 </div>
