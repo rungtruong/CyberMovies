@@ -13,16 +13,18 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
 import { NowShowingComponent } from './movies-list/now-showing/now-showing.component';
 import { MovieItemComponent } from './movies-list/movie-item/movie-item.component';
 import { ComingSoonComponent } from './movies-list/coming-soon/coming-soon.component';
+import { ChitietphimComponent } from './chitietphim/chitietphim.component';
 
 
 const homeLayoutRoutes: Routes = [
   {
     path: '', component: HomeTemplateComponent, children: [
       { path: '', component: HomeLayoutComponent },
+      { path: 'chitietphim', component: ChitietphimComponent}
     ]
   }];
 @NgModule({
-  declarations: [HomeTemplateComponent, HomeLayoutComponent, HeaderComponent, FooterComponent, CarouselComponent, MoviesListComponent, NowShowingComponent, MovieItemComponent, ComingSoonComponent],
+  declarations: [HomeTemplateComponent, HomeLayoutComponent, HeaderComponent, FooterComponent, CarouselComponent, MoviesListComponent, NowShowingComponent, MovieItemComponent, ComingSoonComponent, ChitietphimComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(homeLayoutRoutes),
