@@ -89,7 +89,8 @@
     .movie-time-detail{
         /*css scroll*/
         min-height: 380px;
-        overflow-y:scroll;
+        max-height: 380px;
+        overflow-y:auto;
         overflow-x:hidden;
         span{
             color: #8bc541;

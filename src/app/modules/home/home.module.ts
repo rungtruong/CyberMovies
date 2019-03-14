@@ -20,16 +20,25 @@ const homeLayoutRoutes: Routes = [
   {
     path: '', component: HomeTemplateComponent, children: [
       { path: '', component: HomeLayoutComponent },
-      { path: 'chitietphim', component: ChitietphimComponent}
+      { path: 'chitietphim/:id', component: ChitietphimComponent }
     ]
   }];
 @NgModule({
-  declarations: [HomeTemplateComponent, HomeLayoutComponent, HeaderComponent, FooterComponent, CarouselComponent, MoviesListComponent, NowShowingComponent, MovieItemComponent, ComingSoonComponent, ChitietphimComponent],
+  declarations: [HomeTemplateComponent,
+    HomeLayoutComponent,
+    HeaderComponent,
+    FooterComponent,
+    CarouselComponent,
+    MoviesListComponent,
+    NowShowingComponent,
+    MovieItemComponent,
+    ComingSoonComponent,
+    ChitietphimComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(homeLayoutRoutes),
     OwlModule,
-    
+
   ]
 })
 export class HomeModule { }

@@ -15,6 +15,7 @@ export class MovieService {
   }
 
   public chiTietPhim(id: number): Observable<any[]> {
+  
     let response: any = this.http.get(`http://svcy2.myclass.vn/api/QuanLyPhim/LayChiTietPhim?MaPhim=${id}`);
     return response;
   }
