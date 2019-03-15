@@ -85,6 +85,7 @@ export class UserEditComponent implements OnInit {
   editUser() {
     if (this.validate()) {
       let formData = new FormData($("#formAddUser")[0]);
+      formData.append("TaiKhoan",this.User.TaiKhoan);      
       let objectUser = {};
       formData.forEach(function (value, key) {
         objectUser[key] = value;

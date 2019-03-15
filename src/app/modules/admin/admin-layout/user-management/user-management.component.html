@@ -43,7 +43,7 @@
                   <button class="btn btn-success" title="Sửa Tài Khoản" routerLink="/admin/useredit/{{user.TaiKhoan}}">
                     <i class="fa fa-edit"></i>
                   </button>
-                  <button class="btn btn-danger" title="Xóa Tài Khoản" (click)="deleteUser(user.TaiKhoan)">
+                  <button class="btn btn-danger" title="Xóa Tài Khoản" (click)="acceptDelete(user.TaiKhoan,user.MaLoaiNguoiDung)">
                     <i class="fa fa-trash"></i>
                   </button>
                 </div>

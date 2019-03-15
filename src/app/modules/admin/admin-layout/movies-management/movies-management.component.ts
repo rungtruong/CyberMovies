@@ -3,6 +3,7 @@ import { MovieService } from 'src/app/_core/services/movie.service';
 import { Movie } from 'src/app/_core/models/movie';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2'
 declare var $;
 @Component({
   selector: 'app-movies-management',
@@ -39,10 +40,28 @@ export class MoviesManagementComponent implements OnInit {
       console.log(data);
       if (data === "Xóa phim thành công!") {
         this.toastr.success(`Xóa phim ${name} thành công!`);
-        this.getMovies();        
+        this.getMovies();
       }
     })
 
   }
 
+  acceptDelete(id, name) {
+    Swal.fire({
+      title: `Bạn có chắc chắn muốn xóa phim ${name}?`,
+      text: 'Xóa sẽ không thể khôi phục lại!',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'XÓA',
+      cancelButtonText: 'HỦY'
+    }).then((result) => {
+      if (result.value) {
+        this.deleteMovie(id, name);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        this.toastr.error('Hủy xóa!');
+        this.getMovies();
+      }
+    })
+  }
 }
+
