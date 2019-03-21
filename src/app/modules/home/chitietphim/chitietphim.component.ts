@@ -15,7 +15,7 @@ export class ChitietphimComponent implements OnInit {
   
   private MaPhim;
   private subParam : Subscription;
-  constructor( private activateRoute : ActivatedRoute, private movieService: MovieService  ) { }
+  constructor( private activateRoute : ActivatedRoute, private movieService: MovieService ) { }
 
   ngOnInit() {
     this.subParam = this.activateRoute.params.subscribe((param)=>{
@@ -32,5 +32,5 @@ export class ChitietphimComponent implements OnInit {
       console.log(this.phim)
     })
   }
-
+  
 }
