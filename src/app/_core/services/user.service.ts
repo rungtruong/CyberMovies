@@ -19,7 +19,7 @@ export class UserService {
     header.append('Content-Type', 'application/json;charset=UTF-8');
     const observable = this.http.post(linkApi, data, { headers: header });
     return observable;
-    
+
   }
   public capNhatUser(data): Observable<any> {
     const linkApi = `http://svcy2.myclass.vn/api/QuanLyNguoiDung/CapNhatThongTin`;
@@ -27,10 +27,19 @@ export class UserService {
     header.append('Content-Type', 'application/json;charset=UTF-8');
     const observable = this.http.post(linkApi, data, { headers: header });
     return observable;
-    
+
   }
   public xoaUser(taikhoan: string): Observable<any> {
     let response: any = this.http.delete(`http://svcy2.myclass.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taikhoan}`);
     return response;
+  }
+
+  public dangNhap(taikhoan, matkhau): Observable<any> {
+    const linkApi = `http://svcy2.myclass.vn/api/QuanLyNguoiDung/DangNhap?taikhoan=${taikhoan}&matkhau=${matkhau}`;
+    const header: HttpHeaders = new HttpHeaders(); //Cho biet dinh dang du lieu truyen di
+    header.append('Content-Type', 'application/json;charset=UTF-8');
+    const observable = this.http.post(linkApi, {}, { headers: header });
+    return observable;
+
   }
 }

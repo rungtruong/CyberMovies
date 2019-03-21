@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 import { OwlModule } from 'ngx-owl-carousel';
 import { AdminModule } from './modules/admin/admin.module';
-
+import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -34,6 +34,7 @@ const appRoutes: Routes = [
       closeButton: true,
     }),
     RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

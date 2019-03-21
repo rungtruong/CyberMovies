@@ -1,0 +1,14 @@
+<form #formDangnhap='ngForm' (ngSubmit)="DangNhap(formDangnhap.value)">
+  <div class="form-group">
+    <label for="">Tài Khoản: </label>
+    <input type="email" class="form-control" name="TaiKhoan" #TaiKhoan='ngModel' ngModel required
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" minlength="6" maxlength="32">
+  </div>
+  <div class="form-group">
+    <label for="">Mật Khẩu: </label>
+    <input type="password" class="form-control" name="MatKhau" #MatKhau='ngModel' ngModel>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Đăng Nhập</button>
+  </div>
+</form>

@@ -1,0 +1,65 @@
+<!-- <form action="" #formDangKy='ngForm' (ngSubmit)="DangKy(formDangKy.value)">
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control" name="email" #Email='ngModel'
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel required>
+    <div *ngIf="(Email.touched||Email.dirty)&&Email.errors">
+      <div *ngIf="Email.errors.required" class="alert alert-danger">
+        Email không được rỗng!!
+      </div>
+      <div *ngIf="Email.errors.pattern" class="alert alert-danger">
+        Email không hợp lệ!!
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Tài Khoản</label>
+    <input type="text" class="form-control" name="TaiKhoan" #TaiKhoan='ngModel' ngModel required>
+    <div *ngIf="(TaiKhoan.touched||TaiKhoan.dirty)&&TaiKhoan.errors">
+      <div *ngIf="TaiKhoan.errors.required" class="alert alert-danger">
+        Tài khoản không được bỏ trống!!
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Mật Khẩu</label>
+    <input type="password" class="form-control" name="MatKhau" #MatKhau='ngModel' ngModel required>
+    <div *ngIf="(MatKhau.touched||MatKhau.dirty)&&MatKhau.errors">
+      <div *ngIf="MatKhau.errors.required" class="alert alert-danger">
+        Mật khẩu không được bỏ trống!!
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Nhập Lại Mật Khẩu</label>
+    <input type="password" class="form-control" name="NhapLaiMK" #NhapLaiMK='ngModel' ngModel required
+      [ngClass]="{'ng-valid': NhapLaiMK.value!=MatKhau.value}">
+    <div *ngIf="(NhapLaiMK.touched||NhapLaiMK.dirty)&&NhapLaiMK.errors||NhapLaiMK.value!=MatKhau.value">
+      <div *ngIf="soSanhMK(MatKhau.value,NhapLaiMK.value)" class="alert alert-danger">
+        Mật khẩu không trùng khớp!!
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Họ Tên</label>
+    <input type="text" class="form-control" name="HoTen" #HoTen='ngModel' ngModel required>
+    <div *ngIf="(HoTen.touched||HoTen.dirty)&&HoTen.errors">
+      <div *ngIf="HoTen.errors.required" class="alert alert-danger">
+        Họ tên không được bỏ trống!!
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Số Điện Thoại</label>
+    <input type="number" class="form-control" name="SoDT" #SoDT='ngModel' ngModel required>
+    <div *ngIf="(SoDT.touched||SoDT.dirty)&&SoDT.errors">
+      <div *ngIf="SoDT.errors.required" class="alert alert-danger">
+        Số điện thoại không được bỏ trống!!
+      </div>
+    </div>
+  </div>
+  <div class="form-group text-center">
+    <button type="submit" class="btn btn-success" [disabled]="formDangKy.invalid||formDangKy.submitted">Đăng
+      Ký</button>
+  </div>
+</form> -->
