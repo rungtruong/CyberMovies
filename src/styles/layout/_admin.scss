@@ -226,7 +226,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   }
 
   nav.navbar a.menu-btn:hover {
-    background: #33b35a;
+    background: $color-main;
   }
 
   /*  NAVBAR MEDIAQUERIES ---------------------------------- */
@@ -320,7 +320,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   .side-navbar li a:focus,
   .side-navbar li a:hover,
   .side-navbar li a[aria-expanded="true"] {
-    background: #33b35a;
+    background: $color-main;
     color: #fff;
     text-decoration: none;
   }
@@ -342,7 +342,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   }
 
   .side-navbar li.active > a {
-    background: #33b35a;
+    background: $color-main;
   }
 
   .side-navbar li li.active > a {
@@ -363,7 +363,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   }
 
   .side-navbar li ul.collapse a {
-    border-left: 2px solid #33b35a;
+    border-left: 2px solid $color-main;
   }
 
   .side-navbar li ul.collapse a:hover {
@@ -739,7 +739,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   }
 
   a {
-    color: #33b35a;
+    color: $color-main;
     text-decoration: none;
   }
 
@@ -847,7 +847,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
     padding: 0.5rem 1rem;
     margin-bottom: 2rem;
     font-size: 1.25rem;
-    border-left: 5px solid #33b35a;
+    border-left: 5px solid $color-main;
   }
 
   .blockquote-footer {
@@ -859,7 +859,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   }
 
   .text-primary {
-    color: #33b35a !important;
+    color: $color-main !important;
   }
 
   a.text-primary:focus,
@@ -896,7 +896,7 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   .dropdown-item.active,
   .dropdown-item:active {
     color: #fff;
-    background-color: #33b35a;
+    background-color: $color-main;
   }
 
   .dropdown-item.disabled,

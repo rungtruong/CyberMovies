@@ -1,9 +1,32 @@
 .cardMovieItem {
   border: none;
-  width: 230px;
+  width: 100%;
   height: 400px;
   overflow: hidden;
   position: relative;
+  padding: 0 20px;
+  .my-btn{
+    display: none;
+    width: 230px;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  &:hover {
+    .cardMovieItem-body{
+      display: none;
+    }
+    .my-btn{
+      display: block;
+    }
+    .playTrailer {
+      opacity: 0.7;
+      color: $color-main;
+      &:hover {
+        opacity: 1;
+        color: $color-main;
+      }
+    }
+  }
   .cardMovieItem-img {
     width: 100%;
     height: 300px;
@@ -11,6 +34,8 @@
       width: 100%;
       max-height: 300px;
       min-height: 300px;
+      background-size: cover;
+      background-position: center center;
     }
   }
   .cardMovieItem-title {
@@ -21,8 +46,24 @@
     overflow: hidden;
     text-overflow: clip;
     font-weight: bold;
+    margin: 0;
+    margin-top: 10px;
+    text-align: justify;
   }
-  .cardMovieItem-text{
-      font-size: 13px;
+  .cardMovieItem-text {
+    font-size: 18px;
+    color: $color-main;
   }
+  .playTrailer {
+    width: 70px;
+    height: 70px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    i {
+      font-size: 70px;
+    }
+  }
+
+
 }

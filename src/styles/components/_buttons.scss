@@ -1,8 +1,29 @@
-.my-btn{
-    color: #F56E33;
-    border-color: #F56E33;
-    &:hover{
-        background-color: #F56E33;
-        color: #ffffff;
-    }
-}   
+.my-btn {
+  color: #f56e33;
+  border-color: #f56e33;
+  &:hover {
+    background-color: #f56e33;
+    color: #ffffff;
+  }
+}
+
+// css nut play trailer
+.playTrailer {
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  opacity: 0;
+  background-color: #ffffff;
+  transition: 0.3s all;
+  i {
+    font-size: 100px;
+  }
+}

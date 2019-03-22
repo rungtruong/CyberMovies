@@ -1,6 +1,36 @@
-.movivelist {
-  //   background-image: url('/assets/img/background.jpg');
-  //   background-size: cover;
-  //   background-position: center center;
-  background-color: $color-nenNavbar;
+.nowshowing {
+  .owl-theme {
+    .owl-nav [class*="owl-"] {
+      color: grey;
+      &:hover {
+        background: transparent;
+        text-decoration: none;
+        color: $color-main;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .owl-prev {
+    position: absolute;
+    left: -50px;
+    top: 70px;
+    span {
+      font-size: 90px;
+      font-weight: lighter;
+      
+    }
+  }
+  .owl-next {
+    position: absolute;
+    right: -50px;
+    top: 70px;
+    span {
+      font-size: 90px;
+      font-weight: lighter;   
+    }
+  }
+  
 }

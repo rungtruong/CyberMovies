@@ -9,13 +9,11 @@
   </div>
 </div>
 
-<div class="row" *ngIf="viewStatus; else comingsoon">
-  <div class="col-md-12 mt-3">
-      <app-now-showing></app-now-showing>
+<div class="row">
+  <div class="col-md-12 mt-3" [hidden]="!viewStatus">
+    <app-now-showing></app-now-showing>
   </div>
-</div>
-<ng-template #comingsoon>
-  <div>
+  <div class="col-md-12 mt-3" [hidden]="viewStatus">
     <app-coming-soon></app-coming-soon>
   </div>
-</ng-template>
+</div>

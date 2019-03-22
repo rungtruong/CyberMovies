@@ -1,7 +1,9 @@
-<owl-carousel [options]="myCarouselOptions" [items]="nowShowingMovies" [carouselClasses]="['owl-theme', 'sliding']">
-  <div class="item" *ngFor="let movie of nowShowingMovies; let i = index">
-    <div class="mx-auto">
-      <app-movie-item [movie]="movie"></app-movie-item>
+<div class="nowshowing">
+  <owl-carousel [options]="myCarouselOptions" [items]="nowShowingMovies" [carouselClasses]="['owl-theme', 'sliding']">
+    <div class="item" *ngFor="let movie of nowShowingMovies; let i = index">
+      <div>
+        <app-movie-item [movie]="movie"></app-movie-item>
+      </div>
     </div>
-  </div>
-</owl-carousel>
+  </owl-carousel>
+</div>

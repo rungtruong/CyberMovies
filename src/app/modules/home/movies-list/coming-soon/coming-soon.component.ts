@@ -18,8 +18,8 @@ export class ComingSoonComponent implements OnInit {
   ngOnInit() {
     this.movieService.layDanhSachPhim().subscribe(data => {
       if (typeof data === "object") {
-        for (let i = 8; i < data.length; i++) {
-          this.comingSoonMovies = data[i];
+        for (let i = 8; i < 16; i++) {
+          this.comingSoonMovies.push(data[i]);
         }
       }
     });

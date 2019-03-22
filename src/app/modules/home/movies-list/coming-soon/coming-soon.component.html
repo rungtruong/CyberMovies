@@ -1,7 +1,9 @@
-<owl-carousel [options]="myCarouselOptions" [items]="comingSoonMovies" [carouselClasses]="['owl-theme', 'sliding']">
+<div class="nowshowing">
+  <owl-carousel [options]="myCarouselOptions" [items]="comingSoonMovies" [carouselClasses]="['owl-theme', 'sliding']">
     <div class="item" *ngFor="let movie of comingSoonMovies; let i = index">
       <div>
         <app-movie-item [movie]="movie"></app-movie-item>
       </div>
     </div>
   </owl-carousel>
+</div>
