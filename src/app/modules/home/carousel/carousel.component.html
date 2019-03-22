@@ -15,15 +15,4 @@
 
 </div>
 
-  <!-- Modal -->
-  <div id="modalTrailer" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <img src="../../../../assets/img/close.png" alt="">
-          </button>
-          <iframe width="100%" height="100%" [src]="videoUrl" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
+<app-play-movie-trailer [srcTrailer]="srcTrailer"></app-play-movie-trailer>

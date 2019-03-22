@@ -1,0 +1,26 @@
+#modalTrailer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding-top: 45px;
+
+  .modal-dialog {
+    width: 100%;
+  }
+  .modal-content {
+    width: 900px;
+    height: 530px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: 1100;
+  }
+}

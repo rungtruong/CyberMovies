@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { OwlCarousel } from 'ngx-owl-carousel';
 
 
@@ -18,14 +17,14 @@ export class CarouselComponent implements OnInit {
   ];
   // dsPhim: any = [];
   srcTrailer: string = 'https://www.youtube.com/embed/Mh2ebPxhoLs?autoplay=1';
-  videoUrl: SafeResourceUrl;
+ 
   // Option owl Carousel
   mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = { items: 3, dots: true, nav: true };
 
-  constructor(private movieService: MovieService, private sanitizer: DomSanitizer) {
+  constructor(private movieService: MovieService) {
 
-    this.videoUrl = sanitizer.bypassSecurityTrustResourceUrl(this.srcTrailer);
+    
 
   }
 

@@ -16,6 +16,7 @@ import { ComingSoonComponent } from './movies-list/coming-soon/coming-soon.compo
 import { ChitietphimComponent } from './chitietphim/chitietphim.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { PlayMovieTrailerComponent } from './play-movie-trailer/play-movie-trailer.component';
 
 
 
@@ -39,6 +40,7 @@ const homeLayoutRoutes: Routes = [
     ChitietphimComponent,
     SignInComponent,
     SignUpComponent,
+    PlayMovieTrailerComponent,
 
   ],
   imports: [
