@@ -980,4 +980,35 @@ https://bootstrapious.com/p/bootstrap-4-dashboard
   .side-navbar.shrink .badge {
     display: none;
   }
+
+  a:focus,
+  a:hover {
+    cursor: pointer;
+    color: $color-shadow;
+    text-decoration: none;
+  }
+  a.logout {
+    transition: 0.3s all;
+    &:hover {
+      cursor: pointer;
+      color: $color-shadow;
+      text-decoration: none;
+    }
+  }
+}
+.breadcrumb {
+  li {
+    // ::before {
+    //   content: ">" !important;
+    //   margin: 0 3px;
+    // }
+    &::after {
+      content: ">";
+      margin: 0 3px;
+      color: $color-shadow;
+    }
+  }
+  li:last-child::after {
+    content: "";
+  }
 }

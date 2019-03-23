@@ -15,9 +15,9 @@ export class MovieEditComponent implements OnInit {
     label: "Quản Lý Phim",
     version: "1.0",
     items: [
-      { name: "Quản lý phim", url: "" },
-      { name: "Danh sách phim", url: "" },
-      { name: "Sửa Phim", url: "" },
+      { name: "Quản lý phim", url: "/admin/moviemanage" },
+      { name: "Danh sách phim", url: "/admin/moviemanage" },
+      { name: "Sửa Phim", url: "/admin/moviemanage" },
     ]
   }
   Movie: any = {

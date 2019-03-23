@@ -17,8 +17,8 @@ export class UserManagementComponent implements OnInit {
     label: "Quản Lý Người Dùng",
     version: "1.0",
     items: [
-      { name: "Quản lý người dùng", url: "" },
-      { name: "Danh sách người dùng", url: "" }
+      { name: "Quản lý người dùng", url: "/admin/usermanage" },
+      { name: "Danh sách người dùng", url: "/admin/usermanage" }
     ]
   }
 

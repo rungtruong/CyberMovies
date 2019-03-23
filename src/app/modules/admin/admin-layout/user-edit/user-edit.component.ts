@@ -16,8 +16,8 @@ export class UserEditComponent implements OnInit {
     label: "Quản Lý Người Dùng",
     version: "1.0",
     items: [
-      { name: "Quản lý người dùng", url: "" },
-      { name: "Sửa thông tin người dùng", url: "" },
+      { name: "Quản lý người dùng", url: "/admin/usermanage" },
+      { name: "Sửa thông tin người dùng", url: "/admin/usermanage" },
     ]
   }
   User: any = {

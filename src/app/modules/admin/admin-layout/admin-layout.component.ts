@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $;
 @Component({
   selector: 'app-admin-layout',
@@ -6,46 +7,70 @@ declare var $;
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit, AfterViewInit {
+  account: any;
+  isAccount: any;
+  isAdmin: any;
+  isSignIn: boolean;
 
 
-  constructor() { }
+  constructor(private router: Router, ) { }
 
   ngOnInit() {
+    this.checkSignIn();
   }
+
+  checkSignIn() {
+    if (localStorage.getItem("userLogin")) {
+      this.account = JSON.parse(localStorage.getItem("userLogin"));
+      this.isAccount = this.account.HoTen;
+      this.isAdmin = this.account.MaLoaiNguoiDung;
+      this.isSignIn = true;
+      if (this.isAdmin !== "QuanTri") {
+        this.router.navigate(['/home']);
+      }
+    } else this.router.navigate(['/home']);
+  }
+  signOut() {
+    localStorage.removeItem("userLogin");
+    this.router.navigate(['/home']);
+    // window.location.reload();
+  }
+
+
   ngAfterViewInit(): void {
 
-      // if ($(window).outerWidth() > 992) {
-      //   $("nav.side-navbar").mCustomScrollbar({
-      //     scrollInertia: 200
-      //   });
-      // }
+    // if ($(window).outerWidth() > 992) {
+    //   $("nav.side-navbar").mCustomScrollbar({
+    //     scrollInertia: 200
+    //   });
+    // }
 
-      // Main Template Color
-      var brandPrimary = '#33b35a';
+    // Main Template Color
+    var brandPrimary = '#33b35a';
 
-      // ------------------------------------------------------- //
-      // Side Navbar Functionality
-      // ------------------------------------------------------ //
-      $('#toggle-btn').on('click', function (e) {
+    // ------------------------------------------------------- //
+    // Side Navbar Functionality
+    // ------------------------------------------------------ //
+    $('#toggle-btn').on('click', function (e) {
 
-        e.preventDefault();
+      e.preventDefault();
 
-        if ($(window).outerWidth() > 1194) {
-          $('nav.side-navbar').toggleClass('shrink');
-          $('.page').toggleClass('active');
-        } else {
-          $('nav.side-navbar').toggleClass('show-sm');
-          $('.page').toggleClass('active-sm');
-        }
-      });
+      if ($(window).outerWidth() > 1194) {
+        $('nav.side-navbar').toggleClass('shrink');
+        $('.page').toggleClass('active');
+      } else {
+        $('nav.side-navbar').toggleClass('show-sm');
+        $('.page').toggleClass('active-sm');
+      }
+    });
 
-      // ------------------------------------------------------- //
-      // Tooltips init
-      // ------------------------------------------------------ //    
+    // ------------------------------------------------------- //
+    // Tooltips init
+    // ------------------------------------------------------ //    
 
-      $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
 
 
-    }
-  
+  }
+
 }

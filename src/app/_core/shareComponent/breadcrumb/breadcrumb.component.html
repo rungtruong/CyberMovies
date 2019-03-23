@@ -1,13 +1,16 @@
 <section class="d-flex align-items-center justify-content-between" style="background-color:#f3f5f7">
-  <h1 style="color :#555" >
+  <h1 style="color :#555">
     {{data.label}}
     <small>Version {{data.version}}</small>
   </h1>
-  <ol class="breadcrumb" >
+  <ol class="breadcrumb">
     <li>
-      <a [href]="homeUrl">
-        <i class="fa fa-dashboard"></i> Admin</a>
+      <a [href]="homeUrl" class="fa fa-dashboard"> Admin</a>
     </li>
-    <li class="pointer" *ngFor = "let item of data.items; let i = index" [ngClass] ="i == data.items.length -1? 'active': ''"><a *ngIf="!item.url">{{item.name}}</a><a *ngIf="item.url" [href]="item.url">{{item.name}}</a></li>
+    <li class="pointer" *ngFor="let item of data.items; let i = index"
+      [ngClass]="i == data.items.length -1? 'active': ''">
+      <a *ngIf="!item.url">{{item.name}}</a>
+      <a *ngIf="item.url" [href]="item.url">{{item.name}}</a>
+    </li>
   </ol>
 </section>
