@@ -1,19 +1,17 @@
-<div class="row">
-  <div class="col-md-12 text-center mt-5">
-    <button type="button" class="btn btn-outline-warning my-btn mr-5" (click)="viewStatus=true"
-      routerLinkActive="active">PHIM ĐANG
-      CHIẾU</button>
-    <button type="button" class="btn btn-outline-warning my-btn" (click)="viewStatus=false"
-      routerLinkActive="active">PHIM SẮP
-      CHIẾU</button>
+<div class="movielist">
+  <div class="row">  
+    <div class="col-md-12 text-center mt-5 movie_list_title">
+      <a class=" mr-5 active" (click)="viewStatus=true" [ngClass]="{'active': viewStatus}">Đang Chiếu</a>
+      <a (click)="viewStatus=false" [ngClass]="{'active': !viewStatus}">Sắp Chiếu</a>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12 mt-3" [hidden]="!viewStatus">
-    <app-now-showing></app-now-showing>
-  </div>
-  <div class="col-md-12 mt-3" [hidden]="viewStatus">
-    <app-coming-soon></app-coming-soon>
+  <div class="row">
+    <div class="col-md-12 mt-3" [hidden]="!viewStatus">
+      <app-now-showing></app-now-showing>
+    </div>
+    <div class="col-md-12 mt-3" [hidden]="viewStatus">
+      <app-coming-soon></app-coming-soon>
+    </div>
   </div>
 </div>

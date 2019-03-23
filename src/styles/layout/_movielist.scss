@@ -1,3 +1,28 @@
+.movielist {
+  height: 550px;
+}
+.movie_list_title {
+  height: 35px;
+  box-sizing: border-box;
+
+  a:not([href]):not([tabindex]) {
+    cursor: pointer;
+    font-size: 20px;
+    color: $color-main;
+    text-decoration: none;
+
+    @include transition(font-size 0.3s, text-shadow 0.3s);
+    &:hover {
+      font-size: 24px;
+      text-shadow: 2px 2px 4px $color-shadow;
+    }
+  }
+  a.active {
+    font-size: 24px !important;
+    text-shadow: 2px 2px 4px $color-shadow;
+  }
+}
+
 .nowshowing {
   .owl-theme {
     .owl-nav [class*="owl-"] {
@@ -20,7 +45,6 @@
     span {
       font-size: 90px;
       font-weight: lighter;
-      
     }
   }
   .owl-next {
@@ -29,8 +53,7 @@
     top: 70px;
     span {
       font-size: 90px;
-      font-weight: lighter;   
+      font-weight: lighter;
     }
   }
-  
 }
