@@ -1,30 +1,47 @@
-.container{
-    padding: 0;
+.container {
+  padding: 0;
 }
-.myNavbar{
-    height: $heigh-navbar;
-    background-color: $color-nenNavbar;
-    color: $color-white;
+.myNavbar {
+  height: $heigh-navbar;
+  background-color: $color-nenNavbar;
+  color: $color-white;
 }
-.navbar-brand img{
-    width: $width-logo;
+.navbar-brand img {
+  width: $width-logo;
 }
-.navbar{
-    padding: 0;
+.navbar {
+  padding: 0;
 }
 .dangnhap {
-    .form-group{
-        margin: 0;
-    }
+  .form-group {
+    margin: 0;
+  }
 }
 .navbar-dark {
-    .navbar-nav {
-        .nav-link {
-            color: $color-chuNavbar;
-            &:hover,&:active,&:focus{
-                color: $color-main;
-            }
-        }
+  .navbar-nav {
+    .nav-link {
+      color: $color-chuNavbar;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-main;
+      }
     }
+  }
 }
 
+a.btn-signin {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  i {
+    font-size: 30px;
+  }
+  transition: 0.5s all;
+  &:hover {
+    color: rgb(184, 179, 179);
+    i {
+      color: $color-main;
+    }
+  }
+}
