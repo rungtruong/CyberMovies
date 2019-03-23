@@ -8,9 +8,18 @@ import { Movie } from 'src/app/_core/models/movie';
 })
 export class MovieItemComponent implements OnInit {
   @Input() movie;
+  currentMovie = {
+
+  };
+  ismouseover: boolean;
   constructor() { }
 
   ngOnInit() {
+    if (this.movie) {
+      this.currentMovie = this.movie;
+      // console.log(this.currentMovie);
+      
+    }
   }
 
 }

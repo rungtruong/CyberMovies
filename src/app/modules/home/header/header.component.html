@@ -9,32 +9,33 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#lichchieu">Lịch Chiếu</a>
+            <a class="nav-link">Lịch Chiếu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#cumrap">Cụm Rạp</a>
+            <a class="nav-link">Cụm Rạp</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#tintuc">Tin Tức</a>
+            <a class="nav-link">Tin Tức</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#lienhe">Liên Hệ</a>
+            <a class="nav-link">Liên Hệ</a>
           </li>
         </ul>
       </div>
-      <a class="ml-auto btn-signin" data-toggle="modal" data-target="#signIn">
-        <i class="fa fa-user-circle mr-2" aria-hidden="true"></i> Đăng Nhập</a>
+
+
+      <div class="dropdown open">
+        <a class="ml-auto btn-signin dropdown-toggle" id="btnSignIn">
+          <i class="fa fa-user-circle mr-2" aria-hidden="true" [ngClass]="{'isSignin': isSignIn}"></i> {{isAccount}}</a>
+        <div class="dropdown-menu  mt-2" aria-labelledby="triggerId">
+          <button class="dropdown-item"><i class="fa fa-ticket mr-1"></i>Lịch sử đặt vé</button>
+          <button class="dropdown-item " (click)="signOut()"><i class="fa fa-sign-out mr-1"></i>Đăng xuất</button>
+        </div>
+      </div>
 
     </div>
   </nav>
 </header>
-
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signIn">
-  Launch
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -47,7 +48,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-sign-in></app-sign-in>
+        <app-sign-in (islogin)=isLogin($event)></app-sign-in>
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

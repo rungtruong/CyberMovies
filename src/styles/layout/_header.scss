@@ -20,6 +20,7 @@
 .navbar-dark {
   .navbar-nav {
     .nav-link {
+      cursor: pointer;
       color: $color-chuNavbar;
       &:hover,
       &:active,
@@ -42,6 +43,18 @@ a.btn-signin {
     color: rgb(184, 179, 179);
     i {
       color: $color-main;
+    }
+  }
+  .isSignin {
+    color: $color-main;
+  }
+}
+.dropdown-menu {
+  background-color: $color-nenNavbar;
+  .dropdown-item {
+    color: white;
+    &:hover {
+      background-color: $color-main;
     }
   }
 }

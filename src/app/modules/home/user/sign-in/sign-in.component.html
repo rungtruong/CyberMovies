@@ -1,4 +1,4 @@
-<form #formDangnhap='ngForm' (ngSubmit)="DangNhap(formDangnhap.value)">
+<form #formDangnhap='ngForm' id="formSignin" (ngSubmit)="DangNhap(formDangnhap.value)">
   <div class="form-group">
     <label for="">Tài Khoản: </label>
     <input type="email" class="form-control" name="TaiKhoan" #TaiKhoan='ngModel' ngModel required
@@ -10,5 +10,6 @@
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-success">Đăng Nhập</button>
+    
   </div>
 </form>
