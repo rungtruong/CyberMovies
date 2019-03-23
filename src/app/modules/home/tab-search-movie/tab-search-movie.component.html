@@ -1,6 +1,6 @@
 <div class="container tabSearch d-xs-none">
   <div class="block">
-    <select class="itemSearch" name="movieCode" id="" [(ngModel)]="movieCode" (change)="movieDetail()">
+    <select class="itemSearch" name="movieCode" id="" #movieCode (change)="movieDetail(movieCode.value)">
       <option selected>Phim</option>
       <option value="{{movie.MaPhim}}" *ngFor="let movie of movies">{{movie.TenPhim}}
       </option>
@@ -10,21 +10,21 @@
 
 
   <div class="block">
-    <select class="itemSearch" name="" id="">
+    <select class="itemSearch" name="theaterCode" id="">
       <option selected>Rạp</option>
-      <option *ngFor="let rap of selectmovieDetail.LichChieu">{{rap.Rap.TenRap}}</option>
+      <option value="{{theater.Rap.MaRap}}" *ngFor="let theater of theaters">{{theater.Rap.TenRap}}</option>
     </select>
   </div>
   <div class="block">
-    <select class="itemSearch" name="" id="">
+    <select class="itemSearch" name="" id="" #time (change)="movieTimeShow(time.value)">
       <option selected>Ngày xem</option>
-      <option *ngFor="let date of selectmovieDetail.LichChieu">{{date.NgayChieuGioChieu|date}}</option>
+      <option value="{{date|date:'H:mm'}}" *ngFor="let date of dates">{{date| date : 'shortDate'}}</option>
     </select>
   </div>
   <div class="block">
     <select class="itemSearch last-item" name="" id="">
       <option selected>Suất chiếu</option>
-      <option *ngFor="let date of selectmovieDetail.LichChieu">{{date.NgayChieuGioChieu|date:'H:mm'}}</option>
+      <option *ngFor="let time of times">{{time}}</option>
     </select>
   </div>
   <div class="block">

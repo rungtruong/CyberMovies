@@ -57,6 +57,9 @@
       border-right: 1px solid rgb(185, 182, 182);
       padding: 0 10px;
       outline: none;
+      option{
+        text-overflow: ellipsis;
+      }
     }
     // .itemSearch.last-item {
     //   border-right: none;
