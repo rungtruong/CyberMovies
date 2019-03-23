@@ -42,7 +42,6 @@
         &:hover {
           font-size: 20px;
           text-shadow: 2px 2px 4px $color-shadow;
-          
         }
       }
       a.active {
@@ -50,17 +49,29 @@
         text-shadow: 2px 2px 4px $color-shadow;
       }
     }
-    .itemSearch {
+
+    select.itemSearch {
       width: 100%;
       height: 50px;
       border: none;
       border-right: 1px solid rgb(185, 182, 182);
       padding: 0 10px;
       outline: none;
-      option{
+
+      option {
         text-overflow: ellipsis;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+        &:checked:hover,
+        :checked:focus {
+          background-color: $color-shadow !important;
+          cursor: pointer;
+        }
       }
     }
+    
     // .itemSearch.last-item {
     //   border-right: none;
     // }

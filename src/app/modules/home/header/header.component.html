@@ -28,8 +28,10 @@
         <a class="ml-auto btn-signin dropdown-toggle" id="btnSignIn">
           <i class="fa fa-user-circle mr-2" aria-hidden="true" [ngClass]="{'isSignin': isSignIn}"></i> {{isAccount}}</a>
         <div class="dropdown-menu  mt-2" aria-labelledby="triggerId">
-          <button class="dropdown-item"><i class="fa fa-ticket mr-1"></i>Lịch sử đặt vé</button>
-          <button class="dropdown-item " (click)="signOut()"><i class="fa fa-sign-out mr-1"></i>Đăng xuất</button>
+          <button class="dropdown-item"><i class="fa fa-ticket mr-2"></i>Lịch sử đặt vé</button>
+          <button class="dropdown-item" *ngIf="isAdmin==='QuanTri'" routerLink="/admin"><i class="fa fa-server mr-2"></i>Quản lý Web
+            phim</button>
+          <button class="dropdown-item " (click)="signOut()"><i class="fa fa-sign-out mr-2"></i>Đăng xuất</button>
         </div>
       </div>
 
