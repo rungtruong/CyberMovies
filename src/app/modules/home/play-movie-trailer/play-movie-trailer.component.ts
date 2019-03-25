@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+declare var $;
 
 @Component({
   selector: 'app-play-movie-trailer',
@@ -9,10 +10,21 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 export class PlayMovieTrailerComponent implements OnInit {
   @Input() srcTrailer;
   videoUrl: SafeResourceUrl;
+  currentUrl: any;
+
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.srcTrailer);
+   
+  }
+  ngOnChanges() {
+    if (this.srcTrailer) {
+      this.currentUrl = this.srcTrailer.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+      // this.currentUrl = this.srcTrailer.replace("https://www.youtube.com/watch?v=", "");
+      console.log(this.currentUrl);
+      this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.currentUrl);
+    }
+
   }
 
 }

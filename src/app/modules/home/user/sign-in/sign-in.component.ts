@@ -26,6 +26,5 @@ export class SignInComponent implements OnInit {
           $("#formSignin")[0].reset();
         } else this.toastr.error(data);
       })
-
   }
 }

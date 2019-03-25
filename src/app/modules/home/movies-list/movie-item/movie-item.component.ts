@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from 'src/app/_core/models/movie';
-
+import { Url } from 'url';
+declare var $;
 @Component({
   selector: 'app-movie-item',
   templateUrl: './movie-item.component.html',
@@ -8,18 +9,20 @@ import { Movie } from 'src/app/_core/models/movie';
 })
 export class MovieItemComponent implements OnInit {
   @Input() movie;
-  currentMovie = {
-
-  };
+  currentMovie = {};
   ismouseover: boolean;
+  urlTrailer: Url;
   constructor() { }
 
   ngOnInit() {
     if (this.movie) {
       this.currentMovie = this.movie;
       // console.log(this.currentMovie);
-      
+
     }
   }
-
+  playTrailer(trailer) {
+    // console.log(trailer);
+    this.urlTrailer = trailer;
+  }
 }

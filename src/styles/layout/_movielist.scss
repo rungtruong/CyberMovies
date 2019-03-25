@@ -1,59 +1,60 @@
 .movielist {
   height: 550px;
-}
-.movie_list_title {
-  height: 35px;
-  box-sizing: border-box;
 
-  a:not([href]):not([tabindex]) {
-    cursor: pointer;
-    font-size: 20px;
-    color: $color-main;
-    text-decoration: none;
+  .movie_list_title {
+    height: 35px;
+    box-sizing: border-box;
 
-    @include transition(font-size 0.3s, text-shadow 0.3s);
-    &:hover {
-      font-size: 24px;
+    a:not([href]):not([tabindex]) {
+      cursor: pointer;
+      font-size: 20px;
+      color: $color-main;
+      text-decoration: none;
+
+      @include transition(font-size 0.3s, text-shadow 0.3s);
+      &:hover {
+        font-size: 24px;
+        text-shadow: 2px 2px 4px $color-shadow;
+      }
+    }
+    a.active {
+      font-size: 24px !important;
       text-shadow: 2px 2px 4px $color-shadow;
     }
   }
-  a.active {
-    font-size: 24px !important;
-    text-shadow: 2px 2px 4px $color-shadow;
-  }
-}
 
-.nowshowing {
-  .owl-theme {
-    .owl-nav [class*="owl-"] {
-      color: grey;
-      &:hover {
-        background: transparent;
-        text-decoration: none;
-        color: $color-main;
-      }
-      &:focus {
-        outline: none;
+  .nowshowing {
+    .owl-theme {
+      .owl-nav [class*="owl-"] {
+        color: grey;
+        &:hover {
+          background: transparent;
+          text-decoration: none;
+          color: $color-main;
+        }
+        &:focus {
+          outline: none;
+        }
       }
     }
-  }
 
-  .owl-prev {
-    position: absolute;
-    left: -50px;
-    top: 70px;
-    span {
-      font-size: 90px;
-      font-weight: lighter;
+    .owl-prev {
+      position: absolute;
+      left: -50px;
+      top: 70px;
+      span {
+        font-size: 90px;
+        font-weight: lighter;
+      }
     }
-  }
-  .owl-next {
-    position: absolute;
-    right: -50px;
-    top: 70px;
-    span {
-      font-size: 90px;
-      font-weight: lighter;
+    .owl-next {
+      position: absolute;
+      right: -50px;
+      top: 70px;
+      span {
+        font-size: 90px;
+        font-weight: lighter;
+      }
     }
   }
 }
