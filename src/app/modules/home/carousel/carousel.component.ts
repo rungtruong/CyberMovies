@@ -16,7 +16,7 @@ export class CarouselComponent implements OnInit {
     { HinhAnh: "../../../../assets/img/slide4.jpg" },
   ];
   // dsPhim: any = [];
-  srcTrailer: string = 'https://www.youtube.com/embed/Mh2ebPxhoLs?autoplay=1';
+  srcTrailer: string = 'https://www.youtube.com/embed/Mh2ebPxhoLs';
  
   // Option owl Carousel
   mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
@@ -33,12 +33,12 @@ export class CarouselComponent implements OnInit {
     // this.srcTrailer = Trailer;
   }
   ngOnInit() {
-    this.movieService.layDanhSachPhim().subscribe(
-      (data) => {
-        // this.dsPhim = data;
-        console.log(data);
+    // this.movieService.layDanhSachPhim().subscribe(
+    //   (data) => {
+    //     // this.dsPhim = data;
+    //     console.log(data);
 
-      });
+    //   });
   }
 
 

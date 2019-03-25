@@ -20,9 +20,9 @@ export class NowShowingComponent implements OnInit, OnDestroy {
     this.getMovies();
   }
   ngOnDestroy() {
-    // if (this.requestGetMovies) {
-    //   this.requestGetMovies.unsubscribe();
-    // }
+    if (this.requestGetMovies) {
+      this.requestGetMovies.unsubscribe();
+    }
   }
   getMovies() {
     this.requestGetMovies = this.movieService.layDanhSachPhim().subscribe(data => {

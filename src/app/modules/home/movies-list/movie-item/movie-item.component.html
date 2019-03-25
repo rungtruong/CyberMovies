@@ -10,9 +10,22 @@
   </div>
   <button routerLink="/chitietphim/{{currentMovie.MaPhim}}" class="btn btn-outline-danger my-btn">MUA VÉ</button>
 
-  <button title="Xem Trailer" type="button" class="btn playTrailer" data-toggle="modal" data-target="#modalTrailer">
+  <button title="Xem Trailer" type="button" class="btn playTrailer" data-toggle="modal" data-target="#modalTrailer"
+    (click)="playTrailer(currentMovie.Trailer)">
     <i class="fa fa-play-circle"></i>
   </button>
 </div>
 
-<!-- <app-play-movie-trailer [srcTrailer]="srcTrailer"></app-play-movie-trailer> -->
+<!-- Modal Play Movie Trailer-->
+<div id="modalTrailer" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <img src="./assets/img/close.png" alt="">
+      </button>
+      <div>
+        <app-play-movie-trailer [srcTrailer]="urlTrailer"></app-play-movie-trailer>
+      </div>
+    </div>
+  </div>
+</div>

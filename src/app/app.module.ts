@@ -10,7 +10,7 @@ import { AdminModule } from './modules/admin/admin.module';
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 
 const appRoutes: Routes = [
   { path: '', loadChildren: () => HomeModule },
@@ -35,7 +35,8 @@ const appRoutes: Routes = [
       closeButton: true,
     }),
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    YoutubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

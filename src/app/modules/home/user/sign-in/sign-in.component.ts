@@ -24,9 +24,7 @@ export class SignInComponent implements OnInit {
           localStorage.setItem('userLogin', sUserLogin);
           this.islogin.emit("logintrue");
           $("#formSignin")[0].reset();
-        }
-      }, err => this.toastr.error(err)
-    )
-
+        } else this.toastr.error(data);
+      })
   }
 }

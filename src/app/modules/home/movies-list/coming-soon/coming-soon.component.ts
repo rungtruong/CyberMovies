@@ -20,9 +20,9 @@ export class ComingSoonComponent implements OnInit, OnDestroy {
     this.getMovies();
   }
   ngOnDestroy() {
-    // if (this.requestGetMovies) {
-    //   this.requestGetMovies.subscribe();
-    // }
+    if (this.requestGetMovies) {
+      this.requestGetMovies.unsubscribe();
+    }
   }
   getMovies() {
     this.requestGetMovies = this.movieService.layDanhSachPhim().subscribe(data => {

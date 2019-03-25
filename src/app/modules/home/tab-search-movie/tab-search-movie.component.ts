@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
 import { formatDate } from '@angular/common';
 @Component({
@@ -6,20 +6,26 @@ import { formatDate } from '@angular/common';
   templateUrl: './tab-search-movie.component.html',
   styleUrls: ['./tab-search-movie.component.scss']
 })
-export class TabSearchMovieComponent implements OnInit {
+export class TabSearchMovieComponent implements OnInit, OnDestroy {
   comingsoon = "Phim sắp chiếu";
   movies: any;
   theaters: Array<any> = [];
   dates: Array<any> = [];
   times: Array<any> = [];
   selectmovieDetail: any = {};
+  requestGetMovies: any;
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
     this.getMoVies();
   }
+  ngOnDestroy() {
+    if (this.requestGetMovies) {
+      this.requestGetMovies.subscribe();
+    }
+  }
   getMoVies() {
-    this.movieService.layDanhSachPhim().subscribe(data => {
+    this.requestGetMovies = this.movieService.layDanhSachPhim().subscribe(data => {
       this.movies = data;
     })
   }
