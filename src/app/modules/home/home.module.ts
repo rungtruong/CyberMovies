@@ -18,6 +18,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { PlayMovieTrailerComponent } from './play-movie-trailer/play-movie-trailer.component';
 import { TabSearchMovieComponent } from './tab-search-movie/tab-search-movie.component';
+import { BookTicketComponent } from './book-ticket/book-ticket.component';
+import { GheComponent } from './book-ticket/ghe/ghe.component';
 
 
 
@@ -25,7 +27,8 @@ const homeLayoutRoutes: Routes = [
   {
     path: '', component: HomeTemplateComponent, children: [
       { path: '', component: HomeLayoutComponent },
-      { path: 'chitietphim/:id', component: ChitietphimComponent }
+      { path: 'chitietphim/:id', component: ChitietphimComponent },
+      { path: 'bookticket', component: BookTicketComponent}
     ]
   }];
 @NgModule({
@@ -43,7 +46,8 @@ const homeLayoutRoutes: Routes = [
     SignUpComponent,
     PlayMovieTrailerComponent,
     TabSearchMovieComponent,
-
+    BookTicketComponent,
+    GheComponent
   ],
   imports: [
     CommonModule,

@@ -20,11 +20,15 @@ export class ChitietphimComponent implements OnInit {
   ngOnInit() {
     this.subParam = this.activateRoute.params.subscribe((param)=>{
       this.MaPhim = param.id;
+
       //Gọi service lấy dưữ lịẹệu phim gan vao thuoc tinh phim binding len giao dien
       this.LayChiTietPhim(this.MaPhim);
+      
+      
     })
 
   }
+ 
   LayChiTietPhim(id:number)
   {
     this.movieService.chiTietPhim(id).subscribe(res => {

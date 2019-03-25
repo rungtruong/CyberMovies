@@ -1,0 +1,77 @@
+$orange: #f56e33;
+$green: #03aa35;
+$color_danger:#dc3545;
+$color_primary:#0062cc;
+$color_default: rgb(211, 205, 205);
+$font_icon:16px;
+$pl_icon:5px;
+$border_radius_icon:3px;
+$m_icon:5px;
+.desc_icon::before{
+    content: "\f0c8";
+    padding-left: $pl_icon;
+    border-radius: $border_radius_icon;
+    margin: $m_icon;
+  
+}
+.desc_ghedachon::before
+{
+    color: $color_danger;
+    background: $color_danger;
+}
+.desc_ghetrong::before
+{
+    color: $color_default;
+    background: $color_default;
+}
+.desc_ghedangchon::before
+{
+    color: $color_primary;
+    background: $color_primary;
+}
+.content_left{
+    margin: 0 auto;
+    .img_screen{
+        border: none;
+    }
+    button{
+        border-radius: 10%;
+        border: none;
+    }
+}
+.content_right{
+    height: 100%pc;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    img{
+        border-radius: 5%;
+        margin-left: 53px;
+    }
+    h3{
+        font-weight: 500;
+        margin-left: 53px;
+        margin-top: 20px;
+    }
+    p{
+        font-size: 14px;
+        margin-left: 53px;
+    }
+    b{
+        font-size: 20px;
+        margin-left: 53px;
+    }
+    button{
+        background-color:$orange;
+        color: #fff;
+        margin: 30px 0 10px 102px;
+    }
+
+}
+.txt_orange{
+    color: $orange;
+}
+.txt_green{
+    color:$green;
+}
+
+
