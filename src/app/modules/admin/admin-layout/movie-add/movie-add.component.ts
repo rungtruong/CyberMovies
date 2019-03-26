@@ -63,28 +63,26 @@ export class MovieAddComponent implements OnInit {
       fileformdata.append("TenPhim", this.Movie.TenPhim);
       fileformdata.append("Files", $('#imgMovie')[0].files[0]);
       this.movieService.uploadFileAnhPhim(fileformdata).subscribe(data => {
-        console.log(data);
-        if (data == true) {
+        
+        let formData = new FormData($("#formAddMovie")[0]);
+        formData.append("MaNhom", "GP06");
+        formData.append("DanhGia", this.Movie.DanhGia);
+        let objectMovie = {};
+        formData.forEach(function (value, key) {
+          objectMovie[key] = value;
+        });
 
-        }
+        // upload movie to server
+        this.movieService.themPhim(objectMovie).subscribe((data) => {
+          if (typeof data === "object") {
+            this.toastr.success(`Thêm phim ${data.TenPhim} thành công!`);
+            this.router.navigate(['/admin/moviemanage']);
+          } else this.toastr.error(data);
+        })
       })
 
 
-      let formData = new FormData($("#formAddMovie")[0]);
-      formData.append("MaNhom", "GP06");
-      formData.append("DanhGia", this.Movie.DanhGia);
-      let objectMovie = {};
-      formData.forEach(function (value, key) {
-        objectMovie[key] = value;
-      });
 
-      // upload movie to server
-      // this.movieService.themPhim(objectMovie).subscribe((data) => {
-      //   if (typeof data === "object") {
-      //     this.toastr.success(`Thêm phim ${data.TenPhim} thành công!`);
-      //     this.router.navigate(['/admin/moviemanage']);
-      //   } else this.toastr.error(data);
-      // })
     }
   }
   onCancel() {

@@ -1,5 +1,5 @@
 <div class="movielist">
-  <div class="row">  
+  <div class="row">
     <div class="col-md-12 text-center mt-5 movie_list_title">
       <a class=" mr-5 active" (click)="viewStatus=true" [ngClass]="{'active': viewStatus}">Đang Chiếu</a>
       <a (click)="viewStatus=false" [ngClass]="{'active': !viewStatus}">Sắp Chiếu</a>
@@ -8,10 +8,10 @@
 
   <div class="row">
     <div class="col-md-12 mt-3" [hidden]="!viewStatus">
-      <app-now-showing></app-now-showing>
+      <app-now-showing (urltoMovieList)=getUrlEvent($event)></app-now-showing>
     </div>
     <div class="col-md-12 mt-3" [hidden]="viewStatus">
-      <app-coming-soon></app-coming-soon>
+      <app-coming-soon (urltoMovieList)=getUrlEvent($event)></app-coming-soon>
     </div>
   </div>
 </div>
@@ -19,14 +19,14 @@
 
 <!-- Modal Play Movie Trailer -->
 <div id="modalTrailerMovieList" class="modal fade modalTrailer" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <img src="./assets/img/close.png" alt="">
-        </button>
-        <div>
-          <app-play-movie-trailer [srcTrailer]="currentUrl"></app-play-movie-trailer>
-        </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <img src="./assets/img/close.png" alt="">
+      </button>
+      <div>
+        <app-play-movie-trailer [srcTrailer]="currentUrl"></app-play-movie-trailer>
       </div>
     </div>
   </div>
+</div>

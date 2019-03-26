@@ -9,7 +9,7 @@ declare var $;
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit, OnChanges {
+export class CarouselComponent implements OnInit, AfterViewInit {
   isShowModal: boolean;
   currentUrl: any;
   dsPhim: any = [
@@ -32,7 +32,6 @@ export class CarouselComponent implements OnInit, OnChanges {
   }
 
   playTrailer(Trailer) {
-
     if (Trailer) {
       this.currentUrl = Trailer;
       $('#modalTrailer').modal('show');
@@ -45,13 +44,19 @@ export class CarouselComponent implements OnInit, OnChanges {
       this.isShowModal = false;
       this.currentUrl = "";
     }
-
   }
   ngOnInit() {
-    
-  }
-  ngOnChanges() {
 
+  }
+  ngAfterViewInit() {
+    $('#modalTrailer').on('hidden.bs.modal', () => {
+      // let videos = $('#player');
+      // videos.stopVideo()
+      $('#player').each(function (index) {
+        $(this).attr('src', null);
+        return false;
+      });
+    });
   }
 
   @ViewChild('owlElement') owlElement: OwlCarousel;

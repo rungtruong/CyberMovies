@@ -20,11 +20,10 @@ export class PlayMovieTrailerComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {
     if (this.srcTrailer) {
-      this.currentUrl = this.srcTrailer.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+      this.currentUrl = this.srcTrailer.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/") + "?rel=0&autoplay=1";
       console.log(this.currentUrl);
       this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.currentUrl);
     }
-
   }
 
 }

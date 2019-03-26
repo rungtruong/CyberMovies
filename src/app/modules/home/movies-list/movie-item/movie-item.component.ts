@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from 'src/app/_core/models/movie';
 import { Url } from 'url';
 declare var $;
@@ -9,10 +9,10 @@ declare var $;
 })
 export class MovieItemComponent implements OnInit {
   @Input() movie;
+  @Output() urltoShowNowing = new EventEmitter;
   currentMovie = {};
   ismouseover: boolean;
-  currentUrl: any;
-  isShowModal: boolean;
+  
   constructor() { }
 
   ngOnInit() {
@@ -22,19 +22,7 @@ export class MovieItemComponent implements OnInit {
 
     }
   }
-  playTrailer(Trailer) {
-    if (Trailer) {
-      this.currentUrl = Trailer;
-      $('#modalTrailerMovieList').modal('show');
-    } else {
-      $('#modalTrailerMovieList').modal('hide');
-    }
-    if ($('#modalTrailerMovieList').modal('show')) {
-      this.isShowModal = true;
-    } else {
-      this.isShowModal = false;
-      this.currentUrl = "";
-    }
-
+  playTrailer(Trailer) {    
+    this.urltoShowNowing.emit(Trailer);
   }
 }

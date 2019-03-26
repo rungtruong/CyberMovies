@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
 import { Movie } from 'src/app/_core/models/movie';
 
@@ -14,6 +14,8 @@ export class ComingSoonComponent implements OnInit, OnDestroy {
   //  mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = { items: 4, dots: false, nav: true, autoplay: false, loop: true };
   requestGetMovies: any
+
+  @Output() urltoMovieList = new EventEmitter;
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
@@ -32,6 +34,9 @@ export class ComingSoonComponent implements OnInit, OnDestroy {
         }
       }
     });
+  }
+  getUrlEvent(event) {
+    this.urltoMovieList.emit(event);
   }
 
 }
