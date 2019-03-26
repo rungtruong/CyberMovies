@@ -1,0 +1,22 @@
+$color_danger:#dc3545;
+$color_primary:#0062cc;
+$color_default: rgb(211, 205, 205);
+.ghe{
+    background-color:$color_default;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    color: #fff;
+   
+}
+
+.gheDaDat {
+    cursor:no-drop;
+    background-color: $color_danger;
+
+}
+
+.gheDangDat{
+   
+    background-color: $color_primary;
+}
