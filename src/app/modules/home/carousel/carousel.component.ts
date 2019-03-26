@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, OnChanges } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
 import { OwlCarousel } from 'ngx-owl-carousel';
 declare var $;
@@ -9,7 +9,7 @@ declare var $;
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit, AfterViewInit {
+export class CarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   isShowModal: boolean;
   currentUrl: any;
   dsPhim: any = [
@@ -18,7 +18,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     { HinhAnh: "./assets/img/slide3.jpg", Trailer: "https://www.youtube.com/watch?v=IIIgZI8QDc8" },
     { HinhAnh: "./assets/img/slide4.jpg", Trailer: "https://www.youtube.com/watch?v=IIIgZI8QDc8" },
   ];
-  
+
   // Option owl Carousel
   mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = { items: 3, dots: true, nav: true };
@@ -46,12 +46,13 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
   }
+  ngOnDestroy() {
+    $('#modalTrailer').modal('hide');
+  }
   ngAfterViewInit() {
     $('#modalTrailer').on('hidden.bs.modal', () => {
-      // let videos = $('#player');
-      // videos.stopVideo()
-      $('#player').each(function (index) {
-        $(this).attr('src', null);
+      $('#player').each((index) => {
+        $('#player').attr('src', null);
         return false;
       });
     });

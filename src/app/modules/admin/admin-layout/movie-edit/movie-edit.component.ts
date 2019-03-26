@@ -81,7 +81,7 @@ export class MovieEditComponent implements OnInit {
         object[key] = value;
       });
       // console.log("****");
-      // console.log(object);
+      console.log(object);
 
       //push lên serve
       this.movieService.suaPhim(object).subscribe((data) => {

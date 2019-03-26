@@ -5,7 +5,8 @@
   <div class="cardMovieItem-body">
     <h4 class="cardMovieItem-title">{{currentMovie.TenPhim}}</h4>
     <p class="cardMovieItem-text">
-      <i class="fa fa-star"></i>
+      <i class="fa fa-star mr-1" *ngFor="let star of stars"></i>
+      <i class="fa fa-star-o mr-1" *ngFor="let star of stars_o"></i>
     </p>
   </div>
   <button routerLink="/chitietphim/{{currentMovie.MaPhim}}" class="btn btn-outline-danger my-btn">MUA VÉ</button>

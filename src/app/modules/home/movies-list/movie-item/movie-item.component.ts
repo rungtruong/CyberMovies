@@ -10,19 +10,29 @@ declare var $;
 export class MovieItemComponent implements OnInit {
   @Input() movie;
   @Output() urltoShowNowing = new EventEmitter;
-  currentMovie = {};
+  currentMovie: any = {};
   ismouseover: boolean;
-  
+  stars: Array<any> = [];
+  stars_o: Array<any> = [];
   constructor() { }
 
   ngOnInit() {
     if (this.movie) {
       this.currentMovie = this.movie;
       // console.log(this.currentMovie);
-
+      this.renderStar(this.currentMovie.DanhGia);
     }
   }
-  playTrailer(Trailer) {    
+  playTrailer(Trailer) {
     this.urltoShowNowing.emit(Trailer);
+  }
+
+  renderStar(star: number) {
+    for (let i = 0; i < star; i++) {
+      this.stars.push(i);
+    }
+    for (let i = 0; i < 5 - star; i++) {
+      this.stars_o.push(i);
+    }
   }
 }

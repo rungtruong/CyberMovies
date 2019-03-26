@@ -1,11 +1,11 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 declare var $;
 @Component({
   selector: 'app-movies-list',
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.scss']
 })
-export class MoviesListComponent implements OnInit, AfterViewInit {
+export class MoviesListComponent implements OnInit, AfterViewInit, OnDestroy {
   viewStatus: boolean = true;
 
   currentUrl: any;
@@ -14,6 +14,15 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+    $('#modalTrailerMovieList').on('hidden.bs.modal', () => {
+      $('#player').each(function (index) {
+        $(this).attr('src', null);
+        return false;
+      });
+    });
+  }
+  ngOnDestroy() {
+    $('#modalTrailerMovieList').modal('hide');
   }
   getUrlEvent(event) {
     if (event) {
@@ -30,11 +39,12 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
     }
   }
   ngAfterViewInit() {
-    $('#modalTrailerMovieList').on('hidden.bs.modal', () => {
-      $('#player').each(function (index) {
-        $(this).attr('src',null);
+    $('.modal').on('hidden.bs.modal', () => {
+      $('#player').each((index) => {
+        $('#player').attr('src', null);
         return false;
       });
     });
+
   }
 }
