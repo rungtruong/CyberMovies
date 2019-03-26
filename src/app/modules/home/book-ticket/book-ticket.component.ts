@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {TicketService} from '../../../_core/services/ticket.service';
 import Swal from 'sweetalert2';
 import { MovieService } from 'src/app/_core/services/movie.service';
+import { TicketService } from 'src/app/_core/services/ticket.service';
 
 @Component({
   selector: 'app-book-ticket',

@@ -1,5 +1,1 @@
-<div class="embed-responsive embed-responsive-16by9">hello
-  <!-- <iframe width="100%" height="100%" class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe> -->
-  <!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/rGEVpgZkiXg" frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-</div>
+<iframe id="player" *ngIf="srcTrailer" width="100%" height="530" class="embed-responsive-item" [src]="videoUrl"></iframe>

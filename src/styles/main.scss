@@ -1,35 +1,32 @@
-@import 'abstracts/variables';
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
 // @import 'abstracts/placeholders';
 
 // @import 'vendors/bootstrap';
 // @import 'vendors/jquery-ui';
 
-@import 'base/reset';
+@import "base/reset";
 // @import 'base/typography';
 
 // @import 'layout/navigation';
 // @import 'layout/grid';
-@import 'layout/header';
-@import 'layout/footer';
+@import "layout/header";
+@import "layout/footer";
 // @import 'layout/sidebar';
 // @import 'layout/forms';
-@import 'layout/admin';
-@import 'layout/moviemanagement';
-@import 'layout/movielist';
+@import "layout/admin";
+@import "layout/moviemanagement";
+@import "layout/movielist";
 
+@import "components/buttons";
+@import "components/carousel";
+@import "components/cardMovieItem";
+@import "components/playMovieTrailer";
 
-@import 'components/buttons';
-@import 'components/carousel';
-@import 'components/cardMovieItem';
-@import 'components/playMovieTrailer';
-<<<<<<< HEAD
-@import 'components/bookTicket';
-@import 'components/ghe.scss'
-=======
+@import "components/bookTicket";
+@import "components/ghe";
 
->>>>>>> 06250ab999362ca816bb83d58e6ec3847ad3450e
 // @import 'components/cover';
 // @import 'components/dropdown';
 

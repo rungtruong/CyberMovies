@@ -7,20 +7,20 @@ declare var $;
   templateUrl: './play-movie-trailer.component.html',
   styleUrls: ['./play-movie-trailer.component.scss']
 })
-export class PlayMovieTrailerComponent implements OnInit {
+export class PlayMovieTrailerComponent implements OnInit, OnChanges {
   @Input() srcTrailer;
+  @Input() isShowModal;
   videoUrl: SafeResourceUrl;
   currentUrl: any;
 
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-   
+
   }
   ngOnChanges() {
     if (this.srcTrailer) {
       this.currentUrl = this.srcTrailer.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
-      // this.currentUrl = this.srcTrailer.replace("https://www.youtube.com/watch?v=", "");
       console.log(this.currentUrl);
       this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.currentUrl);
     }

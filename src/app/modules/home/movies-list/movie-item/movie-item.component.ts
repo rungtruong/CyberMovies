@@ -11,7 +11,8 @@ export class MovieItemComponent implements OnInit {
   @Input() movie;
   currentMovie = {};
   ismouseover: boolean;
-  urlTrailer: Url;
+  currentUrl: any;
+  isShowModal: boolean;
   constructor() { }
 
   ngOnInit() {
@@ -21,8 +22,19 @@ export class MovieItemComponent implements OnInit {
 
     }
   }
-  playTrailer(trailer) {
-    // console.log(trailer);
-    this.urlTrailer = trailer;
+  playTrailer(Trailer) {
+    if (Trailer) {
+      this.currentUrl = Trailer;
+      $('#modalTrailerMovieList').modal('show');
+    } else {
+      $('#modalTrailerMovieList').modal('hide');
+    }
+    if ($('#modalTrailerMovieList').modal('show')) {
+      this.isShowModal = true;
+    } else {
+      this.isShowModal = false;
+      this.currentUrl = "";
+    }
+
   }
 }

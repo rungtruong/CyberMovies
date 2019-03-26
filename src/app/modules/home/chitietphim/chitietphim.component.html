@@ -4,36 +4,37 @@
     <div class="col-md-8">
       <div class="row mt-5 movie">
         <div class="col-md-7 movie-left">
-            <div class="media">
-                <img class="mr-3" width="200" height="280" src="{{phim.HinhAnh}}" alt="Generic placeholder image">
-                <div class="media-body align-self-center">
-                  <span class="mt-0">{{phim.NgayKhoiChieu | date: 'dd/MM/yyyy'}}</span><br />
-                  <h4 class="title">{{phim.TenPhim}}</h4>
-                
-            <ng-container *ngIf="phim.MoTa.length>=200; else phimMoTaNgan">
+          <div class="media">
+            <img class="mr-3" width="200" height="280" src="{{phim.HinhAnh}}" alt="Generic placeholder image">
+            <div class="media-body align-self-center">
+              <span class="mt-0">{{phim.NgayKhoiChieu | date: 'dd/MM/yyyy'}}</span><br />
+              <h4 class="title">{{phim.TenPhim}}</h4>
 
-            <span class="time">{{phim.MoTa.substr(0,200) + '...'}}</span>   
-          </ng-container>
-          <ng-template #phimMoTaNgan>
-              <span class="time">{{phim.MoTa}}</span>   
-          </ng-template>
-            <br />
-            <button class="btn btn-warning text-white mt-1"  style="background-color:#F56E33; border: none;">Mua vé</button> 
-                       </div>
-              </div>
-           <!-- <img class="img_movie mr-3" src="../../../../assets/img/movie01.jpg" alt="">
+              <ng-container *ngIf="phim.MoTa.length>=200; else phimMoTaNgan">
+
+                <span class="time">{{phim.MoTa.substr(0,200) + '...'}}</span>
+              </ng-container>
+              <ng-template #phimMoTaNgan>
+                <span class="time">{{phim.MoTa}}</span>
+              </ng-template>
+              <br />
+              <button class="btn btn-warning text-white mt-1" style="background-color:#F56E33; border: none;">Mua
+                vé</button>
+            </div>
+          </div>
+          <!-- <img class="img_movie mr-3" src="../../../../assets/img/movie01.jpg" alt="">
             <div class="desc_movie">
             <p class="phone">08.03.2019</p>
             <p  class="title">Con Gấu Vui Vẻ</p>
             <p class="time">90p-HD-Full</p>
             <button class="btn btn-primary mt-3">Mua vé</button> 
             </div> -->
-            
+
         </div>
         <div class="col-md-5 movie_right align-self-center">
           <div class="evaluate">
             <div class="center">
-                <p>8.1</p>
+              <p>8.1</p>
             </div>
             <div class="evaluate_icon">
               <i class="fa fa-star"></i>
@@ -46,29 +47,29 @@
         </div>
       </div>
       <div class="row">
-          <div class="col-12">
-              <nav class="navbar my-4">
-                  <ul class="navbar-nav navbar-expand-sm menu">
-                    <li class="nav-item mr-4">
-                      <a class="nav-link active menu_color" href="#">Lịch chiếu</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                      <a class="nav-link" href="#">Thông tin</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                      <a class="nav-link" href="#">Đánh giá</a>
-                    </li>
-                  </ul>
-                </nav>
-          </div>
+        <div class="col-12">
+          <nav class="navbar my-4">
+            <ul class="navbar-nav navbar-expand-sm menu">
+              <li class="nav-item mr-4">
+                <a class="nav-link active menu_color" href="#">Lịch chiếu</a>
+              </li>
+              <li class="nav-item mr-4">
+                <a class="nav-link" href="#">Thông tin</a>
+              </li>
+              <li class="nav-item mr-4">
+                <a class="nav-link" href="#">Đánh giá</a>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </div>
       <div class="row movie_time">
         <div class="col-md-3">
           <ul>
-            <li class="nav-item" >
+            <li class="nav-item">
               <ng-container *ngIf="phim.LichChieu.length>0">
-              <a class="nav-link" href="">{{phim.LichChieu[0].Rap.TenRap}}</a>
-            </ng-container>
+                <a class="nav-link" href="">{{phim.LichChieu[0].Rap.TenRap}}</a>
+              </ng-container>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="">Galaxy Cinema</a>
@@ -76,7 +77,7 @@
             <li class="nav-item">
               <a class="nav-link" href="">Lotte Cinema</a>
             </li> -->
-          
+
           </ul>
         </div>
         <div class="col-md-9">
@@ -108,49 +109,50 @@
 
             </tbody>
           </table>
-          <div class="tab-content float-left blockContent ng-scope movie-time-detail" id="listSession"
-            >
+          <div class="tab-content float-left blockContent ng-scope movie-time-detail" id="listSession">
             <!-- Truong hop phim co lich chieu -->
-            <ng-container *ngIf="phim.LichChieu.length>0"> 
-            <div class="row" *ngFor="let lichChieu of phim.LichChieu">
-              <div class="col-md-12">
-                <div class="media">
-                  <img width="50" height="50" class="align-self-top mr-3" src="../../../../assets/img/slide1.jpg"
-                    alt="Generic placeholder image"> 
-                     <div class="media-body">
-                    <h5 class="mt-0"><span>BHD Star Cineplex<b class="font-weight-bold"> - 3/2</b></span></h5>
-                    <p><span>Thời lượng : {{lichChieu.ThoiLuong}}</span> 
-                      <b> Giá : {{lichChieu.GiaVe |number }}</b></p>
-
-                
-                  </div>
-                  
-                </div>
-                
-              </div>
-             
-              <div class="col-md-12">
+            <ng-container *ngIf="phim.LichChieu.length>0">
+              <div class="row" *ngFor="let lichChieu of phim.LichChieu">
+                <div class="col-md-12">
                   <div class="media">
-                    
-                    <img  class="align-self-top mr-3" src="../../../../assets/img/ico_2d.JPG" width="50" height="50" alt="">
+                    <img width="50" height="50" class="align-self-top mr-3" src="../../../../assets/img/slide1.jpg"
+                      alt="Generic placeholder image">
                     <div class="media-body">
-                    
-  
-                      <p> 
-                        <a routerLink="/bookticket" [queryParams]="{MaLichChieu:lichChieu.MaLichChieu,MaPhim:phim.MaPhim,TenRap:lichChieu.Rap.TenRap,NgayChieuGioChieu:lichChieu.NgayChieuGioChieu}">{{lichChieu.NgayChieuGioChieu | date:'dd/MM/yyyy'}} - {{lichChieu.NgayChieuGioChieu | date:'hh:mm' }}</a>
+                      <h5 class="mt-0"><span>BHD Star Cineplex<b class="font-weight-bold"> - 3/2</b></span></h5>
+                      <p><span>Thời lượng : {{lichChieu.ThoiLuong}}</span>
+                        <b> Giá : {{lichChieu.GiaVe |number }}</b></p>
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-12">
+                  <div class="media">
+
+                    <img class="align-self-top mr-3" src="./assets/img/ico_2d.JPG" width="50" height="50" alt="">
+                    <div class="media-body">
+
+
+                      <p>
+                        <a routerLink="/bookticket"
+                          [queryParams]="{MaLichChieu:lichChieu.MaLichChieu,MaPhim:phim.MaPhim,TenRap:lichChieu.Rap.TenRap,NgayChieuGioChieu:lichChieu.NgayChieuGioChieu}">{{lichChieu.NgayChieuGioChieu | date:'dd/MM/yyyy'}}
+                          - {{lichChieu.NgayChieuGioChieu | date:'hh:mm' }}</a>
                         <!-- <a href=""> 17:30</a> -->
                       </p>
                     </div>
-                    
+
                   </div>
-                  
+
                 </div>
-            </div>
-          </ng-container>
+              </div>
+            </ng-container>
             <!-- Truong hop phim ko co lich chieu -->
-          <ng-container *ngIf="phim.LichChieu.length==0">
+            <ng-container *ngIf="phim.LichChieu.length==0">
               <p class="text-dark">Phim chua chieu</p>
-          </ng-container>
+            </ng-container>
 
 
           </div>
