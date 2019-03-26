@@ -29,7 +29,7 @@ export class CarouselComponent implements OnInit {
   }
 
   playTrailer(Trailer) {
-    // console.log(Trailer);
+    console.log(Trailer);
     // this.srcTrailer = Trailer;
   }
   ngOnInit() {

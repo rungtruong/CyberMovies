@@ -21,7 +21,7 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     if (this.requestGetMovies) {
-      this.requestGetMovies.subscribe();
+      this.requestGetMovies.unsubscribe();
     }
   }
   getMoVies() {
