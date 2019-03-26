@@ -9,7 +9,7 @@ import { MovieService } from 'src/app/_core/services/movie.service';
 })
 export class ChitietphimComponent implements OnInit {
 
-  phim: any = {LichChieu:[]};
+  phim: any = {LichChieu:[],MoTa:""};
   today = new Date();
   tomorrow = new Date();
   
