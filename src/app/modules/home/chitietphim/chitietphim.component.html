@@ -10,8 +10,7 @@
               <span class="mt-0">{{phim.NgayKhoiChieu | date: 'dd/MM/yyyy'}}</span><br />
               <h4 class="title">{{phim.TenPhim}}</h4>
 
-              <ng-container *ngIf="phim.MoTa.length>=200; else phimMoTaNgan">
-
+              <ng-container *ngIf="phim.MoTa.length>=200">
                 <span class="time">{{phim.MoTa.substr(0,200) + '...'}}</span>
               </ng-container>
               <ng-template #phimMoTaNgan>
@@ -23,6 +22,7 @@
             </div>
           </div>
           <!-- <img class="img_movie mr-3" src="../../../../assets/img/movie01.jpg" alt="">
+
             <div class="desc_movie">
             <p class="phone">08.03.2019</p>
             <p  class="title">Con Gấu Vui Vẻ</p>
