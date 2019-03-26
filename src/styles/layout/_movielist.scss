@@ -26,11 +26,13 @@
   .nowshowing {
     .owl-theme {
       .owl-nav [class*="owl-"] {
-        color: grey;
+        color: rgb(161, 158, 158);
+        opacity: 0.3;
         &:hover {
           background: transparent;
           text-decoration: none;
           color: $color-main;
+          opacity: 1;
         }
         &:focus {
           outline: none;
