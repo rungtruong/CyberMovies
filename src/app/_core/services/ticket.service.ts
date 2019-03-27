@@ -21,5 +21,10 @@ export class TicketService {
     return observable;
 
   }
+  public lichSuDatVe(taikhoan): Observable<any> {
+    let response: any = this.http.post(`http://svcy2.myclass.vn/api/QuanLyDatVe/XemLichSuDatVe?TaiKhoan=${taikhoan}`,null);
+    return response;
+  }
+
 }
 

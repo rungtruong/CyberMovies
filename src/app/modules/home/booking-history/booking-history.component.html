@@ -1,0 +1,12 @@
+<div class="container mt-md-5">
+  <br />
+  <h1 class="display-4 mt-md-5 text-danger">Lịch sử đặt vé</h1>
+  <div class="media border p-3" *ngFor="let ls of lichSuDatVe">
+    <img src="../../../../assets/img/tickets-icon.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+    <div class="media-body">
+      <h5>Phim: {{ls.TenPhim}} <small><i> - Ngày chiếu: {{ls.NgayDat | date : 'dd-MM-yyyy'}}</i></small></h5>
+      <p>Phim chiếu lúc: {{ls.NgayDat | date : 'hh:mm:ss'}}</p>
+    </div>
+  </div>
+  <br />
+</div>

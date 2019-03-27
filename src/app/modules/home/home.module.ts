@@ -28,6 +28,7 @@ import { NewsPromotionComponent } from './news/news-promotion/news-promotion.com
 import { MovieListTemplateComponent } from './movies-list/movie-list-template/movie-list-template.component';
 import { ContactComponent } from './contact/contact.component';
 import { ReviewDetailComponent } from './news/news-review/review-detail/review-detail.component';
+import { BookingHistoryComponent } from './booking-history/booking-history.component';
 
 
 
@@ -39,7 +40,8 @@ const homeLayoutRoutes: Routes = [
       { path: 'bookticket', component: BookTicketComponent },
       { path: 'news', component: NewsComponent },
       { path: 'movielist', component: MovieListTemplateComponent },
-      { path: 'contact', component: ContactComponent }
+      { path: 'contact', component: ContactComponent },
+      { path: 'bookinghistory', component: BookingHistoryComponent}
     ]
   }];
 @NgModule({
@@ -66,6 +68,7 @@ const homeLayoutRoutes: Routes = [
     MovieListTemplateComponent,
     ContactComponent,
     ReviewDetailComponent,
+    BookingHistoryComponent,
   ],
   imports: [
     CommonModule,
