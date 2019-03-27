@@ -1,4 +1,4 @@
-<div class="movielist">
+<div class="movielist container my-5">
   <div class="row">
     <div class="col-md-12 text-center mt-5 movie_list_title">
       <a class=" mr-5 active" (click)="viewStatus=true" [ngClass]="{'active': viewStatus}">Đang Chiếu</a>
@@ -7,10 +7,10 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 mt-3" [hidden]="!viewStatus">
+    <div class="col-md-12 mt-3" *ngIf="viewStatus">
       <app-now-showing (urltoMovieList)=getUrlEvent($event)></app-now-showing>
     </div>
-    <div class="col-md-12 mt-3" [hidden]="viewStatus">
+    <div class="col-md-12 mt-3" *ngIf="!viewStatus">
       <app-coming-soon (urltoMovieList)=getUrlEvent($event)></app-coming-soon>
     </div>
   </div>

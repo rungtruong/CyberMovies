@@ -25,6 +25,9 @@ import { NewsComponent } from './news/news.component';
 import { NewsFilmComponent } from './news/news-film/news-film.component';
 import { NewsReviewComponent } from './news/news-review/news-review.component';
 import { NewsPromotionComponent } from './news/news-promotion/news-promotion.component';
+import { MovieListTemplateComponent } from './movies-list/movie-list-template/movie-list-template.component';
+import { ContactComponent } from './contact/contact.component';
+import { ReviewDetailComponent } from './news/news-review/review-detail/review-detail.component';
 
 
 
@@ -33,7 +36,10 @@ const homeLayoutRoutes: Routes = [
     path: '', component: HomeTemplateComponent, children: [
       { path: '', component: HomeLayoutComponent },
       { path: 'chitietphim/:id', component: ChitietphimComponent },
-      { path: 'bookticket', component: BookTicketComponent }
+      { path: 'bookticket', component: BookTicketComponent },
+      { path: 'news', component: NewsComponent },
+      { path: 'movielist', component: MovieListTemplateComponent },
+      { path: 'contact', component: ContactComponent }
     ]
   }];
 @NgModule({
@@ -57,6 +63,9 @@ const homeLayoutRoutes: Routes = [
     NewsFilmComponent,
     NewsReviewComponent,
     NewsPromotionComponent,
+    MovieListTemplateComponent,
+    ContactComponent,
+    ReviewDetailComponent,
   ],
   imports: [
     CommonModule,
