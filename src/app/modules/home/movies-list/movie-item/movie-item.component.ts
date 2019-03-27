@@ -27,7 +27,7 @@ export class MovieItemComponent implements OnInit {
     this.urltoShowNowing.emit(Trailer);
   }
 
-  renderStar(star: number) {
+  public renderStar(star: number) {
     for (let i = 0; i < star; i++) {
       this.stars.push(i);
     }

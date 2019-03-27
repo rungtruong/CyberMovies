@@ -1,0 +1,21 @@
+<div class="news container">
+  <div class="row">
+    <div class="col-md-12 text-center mt-5 movie_list_title">
+      <a class=" mr-5 active" (click)="viewStatus=1" [ngClass]="{'active': viewStatus==1}">Phim 24h</a>
+      <a class=" mr-5" (click)=" viewStatus=2" [ngClass]="{'active': viewStatus==2}">Đánh giá</a>
+      <a (click)="viewStatus=3" [ngClass]="{'active': viewStatus==3}">Khuyến mãi</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mt-3" [hidden]="viewStatus!=1">
+      <app-news-film></app-news-film>
+    </div>
+    <div class="col-md-12 mt-3" [hidden]="viewStatus!=2">
+      <app-news-review></app-news-review>
+    </div>
+    <div class="col-md-12 mt-3" [hidden]="viewStatus!=3">
+      <app-news-promotion></app-news-promotion>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,10 @@ import { TabSearchMovieComponent } from './tab-search-movie/tab-search-movie.com
 
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { GheComponent } from './book-ticket/ghe/ghe.component';
+import { NewsComponent } from './news/news.component';
+import { NewsFilmComponent } from './news/news-film/news-film.component';
+import { NewsReviewComponent } from './news/news-review/news-review.component';
+import { NewsPromotionComponent } from './news/news-promotion/news-promotion.component';
 
 
 
@@ -29,7 +33,7 @@ const homeLayoutRoutes: Routes = [
     path: '', component: HomeTemplateComponent, children: [
       { path: '', component: HomeLayoutComponent },
       { path: 'chitietphim/:id', component: ChitietphimComponent },
-      { path: 'bookticket', component: BookTicketComponent}
+      { path: 'bookticket', component: BookTicketComponent }
     ]
   }];
 @NgModule({
@@ -48,7 +52,11 @@ const homeLayoutRoutes: Routes = [
     PlayMovieTrailerComponent,
     TabSearchMovieComponent,
     BookTicketComponent,
-    GheComponent
+    GheComponent,
+    NewsComponent,
+    NewsFilmComponent,
+    NewsReviewComponent,
+    NewsPromotionComponent,
   ],
   imports: [
     CommonModule,

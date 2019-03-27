@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, OnChanges } from '@angular/core';
+import { MovieItemComponent } from './movie-item/movie-item.component';
 declare var $;
 @Component({
   selector: 'app-movies-list',
@@ -10,7 +11,7 @@ export class MoviesListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   currentUrl: any;
   isShowModal: boolean;
-
+  @ViewChild(MovieItemComponent) private movieItemComponent: MovieItemComponent;
   constructor() { }
 
   ngOnInit() {
@@ -45,6 +46,6 @@ export class MoviesListComponent implements OnInit, AfterViewInit, OnDestroy {
         return false;
       });
     });
-
   }
+
 }

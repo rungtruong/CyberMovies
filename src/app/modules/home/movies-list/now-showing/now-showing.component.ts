@@ -28,14 +28,16 @@ export class NowShowingComponent implements OnInit, OnDestroy {
   }
   getMovies() {
     this.requestGetMovies = this.movieService.layDanhSachPhim().subscribe(data => {
-      this.nowShowingMovies = data;
-      // console.log(this.Movies);
-      this.nowShowingMovies.splice(8);
-      // console.log("*****");
-      // console.log(this.Movies);
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].DanhGia != 0 && data[i].DanhGia != null) {
+          this.nowShowingMovies.push(data[i]);
+        }
+      }
+      console.log(this.nowShowingMovies);
+
     });
   }
-  getUrlEvent(event) {    
+  getUrlEvent(event) {
     this.urltoMovieList.emit(event);
   }
 }
