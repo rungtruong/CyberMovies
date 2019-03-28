@@ -1,4 +1,6 @@
 .news {
+  position: relative;
+  height: max-content;
   .movie_list_title {
     height: 35px;
     box-sizing: border-box;
@@ -20,5 +22,21 @@
       text-shadow: 2px 2px 4px $color-shadow;
     }
   }
-
+}
+.newsFilm,
+.newsPromotion,
+.newsReview {
+  padding-top: 90px;
+}
+.news_title {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.news_content {
+  position: relative;
+  top: -70px;
+  left: 0;
+  z-index: 1;
 }

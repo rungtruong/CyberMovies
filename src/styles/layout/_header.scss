@@ -56,5 +56,11 @@ a.btn-signin {
     &:hover {
       background-color: $color-main;
     }
+    &.active,
+    :active {
+      color: #fff;
+      text-decoration: none;
+      background-color: $color-main;
+    }
   }
 }

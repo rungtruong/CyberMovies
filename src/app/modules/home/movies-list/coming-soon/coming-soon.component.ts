@@ -13,7 +13,7 @@ export class ComingSoonComponent implements OnInit, OnDestroy {
   // Option owl Carousel
   //  mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = {
-    items: 4, dots: false, nav: true, autoplay: false, loop: true,
+    items: 5, dots: false, nav: true, autoplay: false, loop: true,
     responsive: { 0: { items: 1 }, 600: { items: 2 }, 960: { items: 4 }, 1200: { items: 5 } }
 
   };

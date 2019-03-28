@@ -9,13 +9,24 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" routerLink="movielist">Danh sách phim</a>
+            <a class="nav-link" routerLink="/home/movielist">Danh sách phim</a>
           </li>
           <li class="nav-item mx-4">
-            <a class="nav-link" routerLink="news">Tin Tức</a>
+            <a class="nav-link dropdown-toggle" id="my-dropdown" data-toggle="dropdown">Tin Tức</a>
+            <div class="dropdown">
+              <div class="dropdown-menu" aria-labelledby="my-dropdown">
+                <button class="dropdown-item" routerLink="/home/news-film" routerLinkActive="active">Phim 24h</button>
+                <button class="dropdown-item" routerLink="/home/news-review" routerLinkActive="active">Đánh giá</button>
+                <button class="dropdown-item" routerLink="/home/news-promotion" routerLinkActive="active">Khuyến
+                  mãi</button>
+              </div>
+            </div>
           </li>
+
+
+
           <li class="nav-item">
-            <a class="nav-link" routerLink="contact">Liên Hệ</a>
+            <a class="nav-link" routerLink="/home/contact">Liên Hệ</a>
           </li>
         </ul>
       </div>
@@ -25,7 +36,8 @@
         <a class="ml-auto btn-signin dropdown-toggle" id="btnSignIn">
           <i class="fa fa-user-circle mr-2" aria-hidden="true" [ngClass]="{'isSignin': isSignIn}"></i> {{isAccount}}</a>
         <div class="dropdown-menu  mt-2" aria-labelledby="triggerId">
-          <button routerLink="/bookinghistory" class="dropdown-item"><i class="fa fa-ticket mr-2"></i>Lịch sử đặt vé</button>
+          <button routerLink="/home/bookinghistory" class="dropdown-item"><i class="fa fa-ticket mr-2"></i>Lịch sử đặt
+            vé</button>
           <button class="dropdown-item" *ngIf="isAdmin==='QuanTri'" routerLink="/admin"><i
               class="fa fa-server mr-2"></i>Quản lý Web
             phim</button>
