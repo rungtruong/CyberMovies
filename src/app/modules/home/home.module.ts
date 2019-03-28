@@ -45,6 +45,7 @@ const homeLayoutRoutes: Routes = [
       { path: 'news-film', component: NewsFilmComponent },
       { path: 'news-review', component: NewsReviewComponent },
       { path: 'news-promotion', component: NewsPromotionComponent },
+      { path: 'reviewdetail', component: ReviewDetailComponent }
     ]
   }];
 @NgModule({
