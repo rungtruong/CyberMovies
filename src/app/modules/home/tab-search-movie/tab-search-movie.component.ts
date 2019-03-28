@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
 import { formatDate } from '@angular/common';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab-search-movie',
   templateUrl: './tab-search-movie.component.html',
@@ -14,7 +16,7 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
   times: Array<any> = [];
   selectmovieDetail: any = {};
   requestGetMovies: any;
-  constructor(private movieService: MovieService) { }
+  constructor(private router:Router,private movieService: MovieService) { }
 
   ngOnInit() {
     this.getMoVies();
@@ -48,8 +50,9 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
         this.theaters.push(this.selectmovieDetail.LichChieu[0]);
         this.dates.push(this.selectmovieDetail.LichChieu[0].NgayChieuGioChieu);
       }
-      console.log(this.theaters);
-    })
+    
+    });
+
   }
   movieTimeShow(time) {
     this.times = [];
@@ -60,8 +63,30 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
       }
     }
     this.times.push(time);
-    // console.log(this.times);
-
+    
   }
+  
+  muaVe(){
+    console.log(this.theaters);
+    if(this.times.length === 0)
+    {
+      Swal.fire('Thông báo','Bạn chưa chọn xuất chiếu','warning');
+      return;
+    }
+    if(this.theaters.length === 0 )
+    {
+      Swal.fire('Thông báo','Phim chưa chiếu','warning');
+      return;
 
+    }else{
+    
+      let params = {
+        MaLichChieu: this.theaters[0].MaLichChieu,
+        MaPhim: this.theaters[0].MaPhim,
+        TenRap:this.theaters[0].Rap.TenRap,
+        NgayChieuGioChieu:this.theaters[0].NgayChieuGioChieu
+      }
+      this.router.navigate(['/bookticket'],{queryParams:params});
+    }
+  }
 }
