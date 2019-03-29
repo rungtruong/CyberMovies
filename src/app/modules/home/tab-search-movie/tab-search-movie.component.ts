@@ -72,7 +72,7 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
       }
     }
     this.times.push(time);
-    this.getTicketDetailByDate();
+    this.getCodeShowByDate();
   }
   chooseTheater(theater) {
     this.selectTheater = theater;
@@ -81,10 +81,10 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
     this.selectTimeShow = timeshow;
   }
   validate() {
-    if (!localStorage.getItem("userLogin")) {
-      Swal.fire("Thông báo", "Vui lòng đăng nhập trước khi đặt vé", "warning");
-      return false;
-    }
+    // if (!localStorage.getItem("userLogin")) {
+    //   Swal.fire("Thông báo", "Vui lòng đăng nhập trước khi đặt vé", "warning");
+    //   return false;
+    // }
     if (!this.selectMovie) {
       Swal.fire('Thông báo', 'Bạn chưa chọn phim muốn xem!', 'warning');
       return false;
@@ -108,7 +108,8 @@ export class TabSearchMovieComponent implements OnInit, OnDestroy {
     }
     return true;
   }
-  getTicketDetailByDate() {
+  //lấy mã lịch chiếu theo ngày chiếu
+  getCodeShowByDate() {
     for (let i = 0; i < this.selectmovieDetail.LichChieu.length; i++) {
       if (this.selectDateShow == this.selectmovieDetail.LichChieu[i].NgayChieuGioChieu) {
         this.selectCodeShow = this.selectmovieDetail.LichChieu[i].MaLichChieu;
