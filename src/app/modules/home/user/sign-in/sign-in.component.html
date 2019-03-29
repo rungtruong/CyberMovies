@@ -1,12 +1,21 @@
 <form #formDangnhap='ngForm' id="formSignin" (ngSubmit)="DangNhap(formDangnhap.value)">
   <div class="form-group">
-    <label for="">Tài Khoản: </label>
-    <input type="email" class="form-control" name="TaiKhoan" #TaiKhoan='ngModel' ngModel required
-      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" minlength="6" maxlength="32">
+    <label for="">Tài Khoản</label>
+    <input type="text" class="form-control" name="TaiKhoan" #TaiKhoan='ngModel' ngModel required>
+    <div *ngIf="(TaiKhoan.touched||TaiKhoan.dirty)&&TaiKhoan.errors">
+      <div *ngIf="TaiKhoan.errors.required" class="alert alert-danger">
+        Tài khoản không được bỏ trống!!
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="">Mật Khẩu: </label>
-    <input type="password" class="form-control" name="MatKhau" #MatKhau='ngModel' ngModel>
+    <label for="">Mật Khẩu</label>
+    <input type="password" class="form-control" name="MatKhau" #MatKhau='ngModel' ngModel required>
+    <div *ngIf="(MatKhau.touched||MatKhau.dirty)&&MatKhau.errors">
+      <div *ngIf="MatKhau.errors.required" class="alert alert-danger">
+        Mật khẩu không được bỏ trống!!
+      </div>
+    </div>
   </div>
   <div class="form-group mt-4">
     <button type="submit" class="btn btn-outline-danger my-btn">Đăng Nhập</button>

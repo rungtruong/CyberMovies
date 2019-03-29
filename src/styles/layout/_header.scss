@@ -77,4 +77,13 @@ a.btn-signin {
   .modal-body {
     padding-bottom: 0;
   }
+  input.ng-valid {
+    border: 1px solid green;
+  }
+  input.ng-invalid {
+    border: 1px solid tomato;
+  }
+  input.ng-untouched {
+    border: 1px solid rgb(183, 197, 196);
+  }
 }
