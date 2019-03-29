@@ -33,7 +33,7 @@
           chiếu: </span>{{ngayChieuGioChieu | date : 'shortDate'}} </p>
       <p> <span class="txt_green font-weight-bold"><i class="fa fa-clock-o mr-1"></i>Suất
           chiếu: </span>{{ngayChieuGioChieu | date:'H:mm'}} </p>
-      <p> <span class="txt_green font-weight-bold"><i class="fa fa-ticket mr-1"></i>Vé: </span>
+      <p> <span class="txt_green font-weight-bold"><i class="fa fa-ticket mr-1"></i>Số ghế: </span>
         <span *ngFor="let gheDangDat of DanhSachGheDangDat">
           {{gheDangDat.TenGhe + ","}}
         </span>

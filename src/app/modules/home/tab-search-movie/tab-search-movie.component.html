@@ -10,19 +10,19 @@
 
 
   <div class="block">
-    <select class="itemSearch" name="theaterCode" id="">
+    <select class="itemSearch" name="theaterCode" id="" #theaterCode (change)="chooseTheater(theaterCode.value)">
       <option selected>Rạp</option>
-      <option value="{{theater.Rap.MaRap}}" *ngFor="let theater of theaters">{{theater.Rap.TenRap}}</option>
+      <option value="{{theater.Rap.TenRap}}" *ngFor="let theater of theaters">{{theater.Rap.TenRap}}</option>
     </select>
   </div>
   <div class="block">
-    <select class="itemSearch" name="" id="" #time (change)="movieTimeShow(time.value)">
+    <select class="itemSearch" name="" id="" #dateTime (change)="movieTimeShow(dateTime.value)">
       <option selected>Ngày xem</option>
-      <option value="{{date|date:'H:mm'}}" *ngFor="let date of dates">{{date| date : 'shortDate'}}</option>
+      <option value="{{date}}" *ngFor="let date of dates">{{date| date : 'shortDate'}}</option>
     </select>
   </div>
   <div class="block">
-    <select class="itemSearch last-item" name="" id="">
+    <select class="itemSearch last-item" name="" id="" #timeshow (change)="chooseTimeShow(timeshow.value)">
       <option selected>Suất chiếu</option>
       <option *ngFor="let time of times">{{time}}</option>
     </select>
