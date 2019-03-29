@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -42,4 +43,12 @@ export class UserService {
     return observable;
 
   }
+  public dangKy(nguoiDung: User): Observable<any> {
+    const linkApi = `http://svcy2.myclass.vn/api/QuanLyNguoiDung/ThemNguoiDung`;
+    const header: HttpHeaders = new HttpHeaders(); //Cho biet dinh dang du lieu truyen di
+    header.append('Content-Type', 'application/json;charset=UTF-8');
+    const observable = this.http.post(linkApi, nguoiDung, { headers: header });
+    return observable;
+  }
+
 }

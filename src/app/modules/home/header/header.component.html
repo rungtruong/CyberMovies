@@ -33,7 +33,7 @@
 
 
       <div class="dropdown open">
-        <a class="ml-auto btn-signin dropdown-toggle" id="btnSignIn">
+        <a class="ml-auto btn-signin dropdown-toggle" id="btnSignIn" (click)="isSignIn=flase">
           <i class="fa fa-user-circle mr-2" aria-hidden="true" [ngClass]="{'isSignin': isSignIn}"></i> {{isAccount}}</a>
         <div class="dropdown-menu  mt-2" aria-labelledby="triggerId">
           <button routerLink="/home/bookinghistory" class="dropdown-item"><i class="fa fa-ticket mr-2"></i>Lịch sử đặt
@@ -60,12 +60,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-sign-in (islogin)=isLogin($event)></app-sign-in>
+        <app-sign-in (islogin)=isLogin($event) *ngIf="!isSignIn"></app-sign-in>
+        <app-sign-up (isSignUp)="isSignUp($event)" *ngIf="isSignIn"></app-sign-up>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
-      </div> -->
+      <div class="modal-footer">
+        <a class="mr-2 loginAction" *ngIf="!isSignIn">Quên mật khẩu</a>
+        <a class="loginAction" (click)="isSignIn=!isSignIn"><i class="fa fa-arrow-left mr-2"
+            *ngIf="isSignIn"></i>{{!isSignIn? 'Đăng ký tài khoản?':'Đăng nhập'}}</a>
+      </div>
     </div>
   </div>
 </div>

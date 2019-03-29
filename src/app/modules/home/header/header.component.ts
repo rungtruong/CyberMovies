@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
       this.account = JSON.parse(localStorage.getItem("userLogin"));
       this.isAccount = this.account.HoTen;
       this.isAdmin=this.account.MaLoaiNguoiDung;
-      this.isSignIn = true;
+      // this.isSignIn = true;
       $("#btnSignIn").removeAttr("data-toggle");
       $("#btnSignIn").removeAttr("data-target");
       $("#btnSignIn").attr("data-toggle", "dropdown");
@@ -47,6 +47,11 @@ export class HeaderComponent implements OnInit {
     if (event === "logintrue") {
       $("#signIn").modal('hide');
       window.location.reload();
+    }
+  }
+  isSignUp(event){
+    if (event) {
+      this.isSignIn=false;
     }
   }
 }

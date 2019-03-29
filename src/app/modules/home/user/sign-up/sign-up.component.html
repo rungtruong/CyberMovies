@@ -1,4 +1,4 @@
-<!-- <form action="" #formDangKy='ngForm' (ngSubmit)="DangKy(formDangKy.value)">
+<form action="" #formSignUp='ngForm' (ngSubmit)="signUP(formSignUp.value)">
   <div class="form-group">
     <label for="">Email</label>
     <input type="email" class="form-control" name="email" #Email='ngModel'
@@ -35,7 +35,7 @@
     <input type="password" class="form-control" name="NhapLaiMK" #NhapLaiMK='ngModel' ngModel required
       [ngClass]="{'ng-valid': NhapLaiMK.value!=MatKhau.value}">
     <div *ngIf="(NhapLaiMK.touched||NhapLaiMK.dirty)&&NhapLaiMK.errors||NhapLaiMK.value!=MatKhau.value">
-      <div *ngIf="soSanhMK(MatKhau.value,NhapLaiMK.value)" class="alert alert-danger">
+      <div *ngIf="comparePassword(MatKhau.value,NhapLaiMK.value)" class="alert alert-danger">
         Mật khẩu không trùng khớp!!
       </div>
     </div>
@@ -51,15 +51,17 @@
   </div>
   <div class="form-group">
     <label for="">Số Điện Thoại</label>
-    <input type="number" class="form-control" name="SoDT" #SoDT='ngModel' ngModel required>
+    <input type="number" onkeydown="return event.keyCode !== 69" class="form-control" name="SoDT" #SoDT='ngModel'
+      autocomplete="off" ngModel required>
     <div *ngIf="(SoDT.touched||SoDT.dirty)&&SoDT.errors">
       <div *ngIf="SoDT.errors.required" class="alert alert-danger">
         Số điện thoại không được bỏ trống!!
       </div>
     </div>
   </div>
-  <div class="form-group text-center">
-    <button type="submit" class="btn btn-success" [disabled]="formDangKy.invalid||formDangKy.submitted">Đăng
+  <div class="form-group mt-4">
+    <button type="submit" class="btn btn-outline-danger my-btn"
+      [disabled]="formSignUp.invalid||formSignUp.submitted">Đăng
       Ký</button>
   </div>
-</form> -->
+</form>

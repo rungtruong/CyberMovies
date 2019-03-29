@@ -10,6 +10,7 @@ declare var $;
 })
 export class SignInComponent implements OnInit {
   @Output() islogin: EventEmitter<any> = new EventEmitter();
+  isSignUp:boolean;
   constructor(private userService: UserService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
