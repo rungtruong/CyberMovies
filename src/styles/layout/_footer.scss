@@ -1,7 +1,7 @@
 .footer {
-    text-align: center;
-    background-color: $color-nenNavbar;
-    color: $color-white;
+  text-align: center;
+  background-color: $color-nenNavbar;
+  color: $color-white;
   .fa {
     line-height: 60px;
     font-size: 30px;
@@ -39,4 +39,7 @@
     background: #bb0000;
     color: white;
   }
+}
+.my-bg {
+  background-color: $color-main;
 }

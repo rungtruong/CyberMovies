@@ -11,7 +11,7 @@ export class NowShowingComponent implements OnInit, OnDestroy {
   nowShowingMovies: Movie[] = [];
   // Option owl Carousel
   //  mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
-  myCarouselOptions = { items: 5, dots: false, nav: true, autoplay: false, loop: true };
+  myCarouselOptions = { items: 5, dots: false, nav: true, autoplay: true, loop: true };
 
   requestGetMovies: any;
 
