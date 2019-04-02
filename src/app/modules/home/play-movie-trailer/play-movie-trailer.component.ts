@@ -10,6 +10,7 @@ declare var $;
 export class PlayMovieTrailerComponent implements OnInit, OnChanges {
   @Input() srcTrailer;
   @Input() isShowModal;
+  @Input() autoPlay:boolean = true;
   videoUrl: SafeResourceUrl;
   currentUrl: any;
 

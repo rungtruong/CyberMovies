@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MovieService } from 'src/app/_core/services/movie.service';
+import * as $ from 'jquery';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-chitietphim',
   templateUrl: './chitietphim.component.html',
@@ -10,14 +12,19 @@ import { MovieService } from 'src/app/_core/services/movie.service';
 export class ChitietphimComponent implements OnInit {
 
   phim: any = {LichChieu:[],MoTa:""};
+  autoPlay = false;
   today = new Date();
   tomorrow = new Date();
-  
+  videoUrl: SafeResourceUrl;
+  currentUrl: any;
   private MaPhim;
   private subParam : Subscription;
-  constructor( private activateRoute : ActivatedRoute, private movieService: MovieService ) { }
+  constructor( private activateRoute : ActivatedRoute, private movieService: MovieService,private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    $('html, body').animate({
+      scrollTop: $("body").offset().top - 70
+      }, 500);
     this.subParam = this.activateRoute.params.subscribe((param)=>{
       this.MaPhim = param.id;
 
@@ -28,6 +35,13 @@ export class ChitietphimComponent implements OnInit {
     })
 
   }
+  scrollBookingList()
+  {
+    
+    $('html, body').animate({
+      scrollTop: $("#listSession").offset().top - 70
+      }, 500);
+  }
  
   LayChiTietPhim(id:number)
   {
@@ -36,5 +50,11 @@ export class ChitietphimComponent implements OnInit {
       console.log(this.phim)
     })
   }
-  
+  scrollTrailer()
+  {
+    $('html, body').animate({
+      scrollTop: $("#trailer").offset().top - 70
+      }, 500);
+  }
+
 }
