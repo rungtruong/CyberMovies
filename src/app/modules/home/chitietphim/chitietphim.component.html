@@ -1,189 +1,84 @@
-<div class="container-fluid" id="chitietphim">
-  <div class="row movie_body">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="row mt-3 movie">
-        <div class="col-md-12 movie-left">
-          <div class="media">
-            <img class="mr-3" width="200" height="280" src="{{phim.HinhAnh}}" alt="Generic placeholder image">
-            <div class="media-body align-self-center">
-              <h4 class="title">{{phim.TenPhim}}</h4>
-              <span class="mt-0">Ngày chiếu : {{phim.NgayKhoiChieu | date: 'dd/MM/yyyy'}}</span><br />
-              <ng-container *ngIf="phim.MoTa.length>=200">
-                <span class="time">Mô tả : {{phim.MoTa.substr(0,200) + '...'}}</span>
-              </ng-container>
-              <ng-template #phimMoTaNgan>
-                <span class="time">{{phim.MoTa}}</span>
-              </ng-template>
-              <br />
-              <button (click)="scrollBookingList()" class="btn btn-warning text-white mt-1 mr-2" style="background-color:#F56E33; border: none;">Mua
-                vé</button>
-                <button class="btn btn-warning text-white mt-1" (click)="scrollTrailer()" style="background-color:rgb(128, 228, 61); border: none;">Trailer</button>
+<div class="movieDetail">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-12 col-xs-12 pb-4">
+        <div class="movie-img sticky-sb">
+          <img src="{{phim.HinhAnh}}" alt="">
+          <div class="movie-btn text-center">
+            <div><button class="btn  my-btn w-75 my-3"><i class="fa fa-play"></i> Xem
+                Trailer</button>
+            </div>
+            <div><button class="btn  my-btn w-75" (click)="isSelelect=1"><i class="fa fa-ticket"></i> Mua Vé</button>
             </div>
           </div>
-          <div class="row mt-3 mb-3">
-            <div class="col-12">
-                <div class="card bg-dark">
-                    <div class="card-header text-warning bg-dark" >
-                      NỘI DUNG PHIM
-                    </div>
-                    <div class="card-body">
-                      <!-- <h5 class="card-title">Special title treatment</h5> -->
-                      <p class="card-text">
-                        {{phim.MoTa}}
-                      </p>
-                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                    </div>
-                  </div>
-            </div>
-            
-          </div>
-          <div class="row mt-3 mb-3">
-              <div class="col-12">
-                  <div class="card bg-dark">
-                      <div class="card-header text-warning bg-dark" id="trailer" name="trailer">
-                        TRAILER PHIM
-                      </div>
-                      <div class="card-body">
-                        <!-- <h5 class="card-title">Special title treatment</h5> -->
-                        <p class="card-text">
-                            <app-play-movie-trailer [autoPlay]="autoPlay" [srcTrailer]="phim.Trailer"></app-play-movie-trailer>
-                        </p>
-                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                      </div>
-                    </div>
-              </div>
-              
-            </div>
-        </div>
-        <!-- <div class="col-md-5 movie_right align-self-center">
-          <div class="evaluate">
-            <div class="center">
-              <p>8.1</p>
-            </div>
-            <div class="evaluate_icon">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <span>97 người đánh giá</span>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="row">
-        <div class="col-12">
-          <nav class="navbar my-4">
-            <ul class="navbar-nav navbar-expand-sm menu">
-              <li class="nav-item mr-4">
-                <a class="nav-link active menu_color" href="#">Lịch chiếu</a>
-              </li>
-              <li class="nav-item mr-4">
-                <a class="nav-link" href="#">Thông tin</a>
-              </li>
-              <li class="nav-item mr-4">
-                <a class="nav-link" href="#">Đánh giá</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div> -->
-      <div class="row movie_time bg-dark-base">
-        <div class="col-md-3">
-          <ul>
-            <li class="nav-item">
-              <ng-container *ngIf="phim.LichChieu.length>0">
-                <a class="nav-link" href="">{{phim.LichChieu[0].Rap.TenRap}}</a>
-              </ng-container>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="">Galaxy Cinema</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Lotte Cinema</a>
-            </li> -->
-
-          </ul>
-        </div>
-
-        <div class="col-md-9">
-          <!-- <table class="table font-weight-bold">
-            <tbody>
-              <tr>
-                <td scope="row" align="center">
-                  <p>Thứ 2</p> <span>15</span>
-                </td>
-                <td scope="row" align="center">
-                  <p>Thứ 3</p> <span>16</span>
-                </td>
-                <td scope="row" align="center">
-                  <p>Thứ 4</p><span>17</span>
-                </td>
-                <td scope="row" align="center">
-                  <p>Thứ 5</p><span>18</span>
-                </td>
-                <td scope="row" align="center">
-                  <p>Thứ 6</p><span>19</span>
-                </td>
-                <td scope="row" align="center">
-                  <p>Thứ 7</p><span>20</span>
-                </td>
-                <td scope="row" align="center">
-                  <p>Chủ nhật</p><span>21</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table> -->
-          <div class="mt-3 tab-content float-left blockContent ng-scope movie-time-detail" id="listSession">
-            <!-- Truong hop phim co lich chieu -->
-            <ng-container *ngIf="phim.LichChieu.length>0">
-              <div class="row" *ngFor="let lichChieu of phim.LichChieu">
-                <div class="col-md-12">
-                  <div class="media">
-                    <img width="50" height="50" class="align-self-top mr-3" src="./assets/img/slide1.jpg"
-                      alt="Generic placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0"><span>BHD Star Cineplex<b class="font-weight-bold"> - 3/2</b></span></h5>
-                      <p><span>Thời lượng : {{lichChieu.ThoiLuong}}</span>
-                        <b> Giá : {{lichChieu.GiaVe |number }}</b></p>
-
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div class="col-md-12">
-                  <div class="media">
-
-                    <img class="align-self-top mr-3" src="./assets/img/ico_2d.JPG" width="50" height="50" alt="">
-                    <div class="media-body">
-
-
-                      <p>
-                        <a routerLink="/bookticket"
-                          [queryParams]="{MaLichChieu:lichChieu.MaLichChieu,MaPhim:phim.MaPhim,TenRap:lichChieu.Rap.TenRap,NgayChieuGioChieu:lichChieu.NgayChieuGioChieu}">{{lichChieu.NgayChieuGioChieu | date:'dd/MM/yyyy'}}
-                          - {{lichChieu.NgayChieuGioChieu | date:'hh:mm' }}</a>
-                        <!-- <a href=""> 17:30</a> -->
-                      </p>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </ng-container>
-            <!-- Truong hop phim ko co lich chieu -->
-            <ng-container *ngIf="phim.LichChieu.length==0">
-              <p class="text-dark">Phim này chưa có lịch chiếu. Vui lòng chọn phim khác !</p>
-            </ng-container>
-          </div>
-
         </div>
       </div>
-      <div class="col-md-2"></div>
+      <div class="col-md-9 col-sm-12 col-xs-12">
+        <div class="main-content">
+          <h1 class="titleMovie mb-4">{{phim.TenPhim}} <span>{{phim.NgayKhoiChieu | date:'yyyy'}}</span>
+          </h1>
+          <div class="movie-rate d-flex justify-content-start align-items-center">
+            <div class="rate cardMovieItem-text d-flex justify-content-start align-items-center">
+              <i class="fa fa-star"></i>
+              <p><span>8.1</span> /10<br>
+                <span class="rv">56 Reviews</span>
+              </p>
+            </div>
+            <div class="rate-star d-flex justify-content-center align-items-center">
+              <p>Rate This Movie: </p>
+              <p class="cardMovieItem-text ml-3">
+                <i class="fa fa-star mr-1" *ngFor="let star of stars"></i>
+                <i class="fa fa-star-o mr-1" *ngFor="let star of stars_o"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="movie-tabs">
+            <div class="tabs">
+              <ul class="tab-links tabs-mv">
+                <li><a (click)="isSelelect=1" [ngClass]="{'active': isSelelect==1}" *ngIf="phim.LichChieu.length>0" title="Chọn lịch chiếu">Lịch
+                    Chiếu</a></li>
+                <li><a (click)="isSelelect=2" [ngClass]="{'active': isSelelect==2}" title="Xem thông tin phim">Thông Tin </a></li>
+                <li><a (click)="isSelelect=3" [ngClass]="{'active': isSelelect==3}" title="Xem đánh giá">Đánh Giá</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="isSelelect==1">
+                    <div class="row" *ngFor="let lichChieu of phim.LichChieu">
+                      <div class="col-md-12">
+                        <div class="media">
+                          <img width="50" height="50" class="align-self-top mr-3 imgRap" src="{{phim.HinhAnh}}"
+                            alt="Generic placeholder image">
+                          <div class="media-body">
+                            <h5 class="mt-0"><span>{{lichChieu.Rap.TenRap}}</span></h5>
+                            <p><span class="my-0 mr-3"><b>Thời lượng:</b> {{lichChieu.ThoiLuong}} phút</span>
+                              <b>Giá:</b> {{lichChieu.GiaVe |number }}</p>
+                            <p class="mb-4 linkDatVe">
+                              <a title="Chọn suất chiếu" routerLink="/bookticket"
+                                [queryParams]="{MaLichChieu:lichChieu.MaLichChieu,MaPhim:phim.MaPhim,TenRap:lichChieu.Rap.TenRap,NgayChieuGioChieu:lichChieu.NgayChieuGioChieu}"><span
+                                  class="mr-3"><b>Ngày
+                                    chiếu:</b> {{lichChieu.NgayChieuGioChieu | date:'dd/MM/yyyy'}}</span>
+                                <b>Suất chiếu:</b> {{lichChieu.NgayChieuGioChieu | date:'hh:mm' }}</a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="isSelelect==2">
+                    <p class="text-justify">{{phim.MoTa}}</p>
+                  </div>
+                  <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="isSelelect==3">
+                    <app-review-detail></app-review-detail>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- <div class="overflow"></div> -->
+</div>
