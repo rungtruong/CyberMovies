@@ -25,7 +25,7 @@
         <img src="./assets/img/close.png" alt="">
       </button>
       <div>
-        <app-play-movie-trailer [srcTrailer]="currentUrl"></app-play-movie-trailer>
+        <app-play-movie-trailer *ngIf="isShowModal" [srcTrailer]="currentUrl"></app-play-movie-trailer>
       </div>
     </div>
   </div>

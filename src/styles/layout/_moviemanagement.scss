@@ -14,4 +14,10 @@
 }
 .breadcrumb{
     background-color: #F4F7FA;
+    li{
+      a{
+        color: $color-main !important;
+        cursor: default !important;
+      }
+    }
 }

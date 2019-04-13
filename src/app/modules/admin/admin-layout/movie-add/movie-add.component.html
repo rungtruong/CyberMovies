@@ -29,7 +29,7 @@
               <div class="form-group">
                 <label for="">Ngày Khởi Chiếu</label>
                 <input type="date" value="2013-10-24T20:36:00" step="1" name="NgayKhoiChieu"
-                  [(ngModel)]="Movie.NgayKhoiChieu" id="" class="form-control">
+                  [(ngModel)]="Movie.NgayKhoiChieu" id="NgayKhoiChieu" class="form-control" (change)='showdate(Movie.NgayKhoiChieu)'>
               </div>
               <div class="form-group">
                 <label for="">Mô Tả</label>
@@ -50,8 +50,8 @@
 
                 <div class="form-group">
                   <label for="">Hình Ảnh</label>
-                  <input type="url" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" class="form-control">
-                  <input type="file" accept="image/*" id="imgMovie" multiple class="form-control-file mt-2">
+                  <!-- <input type="url" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" class="form-control"> -->
+                  <input type="file" #files  accept="image/*" id="imgMovie" class="form-control-file mt-2">
                 </div>
 
               </div>

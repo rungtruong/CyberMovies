@@ -13,8 +13,8 @@ export class UserAddComponent implements OnInit {
     label: "Quản Lý Người Dùng",
     version: "1.0",
     items: [
-      { name: "Quản lý người dùng", url: "/admin/usermanage" },
-      { name: "Thêm người dùng", url: "/admin/useradd" },
+      { name: "Quản lý người dùng", url: "" },
+      { name: "Thêm người dùng", url: "" },
     ]
   }
   User: any = {

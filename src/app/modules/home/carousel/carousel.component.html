@@ -24,7 +24,7 @@
         <img src="./assets/img/close.png" alt="">
       </button>
 
-      <app-play-movie-trailer [srcTrailer]="currentUrl"></app-play-movie-trailer>
+      <app-play-movie-trailer *ngIf="isShowModal" [srcTrailer]="currentUrl"></app-play-movie-trailer>
       <!-- <iframe width="100%" height="100%" *ngIf="isShowModal" [src]="videoUrl" frameborder="0"></iframe> -->
 
     </div>

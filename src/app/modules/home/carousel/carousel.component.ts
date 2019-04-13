@@ -9,7 +9,7 @@ declare var $;
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit, AfterViewInit, OnDestroy {
+export class CarouselComponent implements OnInit, AfterViewInit {
   isShowModal: boolean;
   currentUrl: any;
   dsPhim: any = [
@@ -23,10 +23,21 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   mySlideOptions = { items: 1, dots: true, nav: false, autoplay: true, loop: true };
   myCarouselOptions = { items: 3, dots: true, nav: true };
 
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService) { }
+  ngOnInit() {
 
+  }
 
+  ngAfterViewInit() {
+    $('#modalTrailer').on('hidden.bs.modal', () => {
+      this.isShowModal = false;
+    });
+  }
 
+  @ViewChild('owlElement') owlElement: OwlCarousel;
+  fun() {
+    this.owlElement.next([500])
+    //duration 200ms
   }
 
   playTrailer(Trailer) {
@@ -43,29 +54,6 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnDestroy {
       this.currentUrl = "";
     }
   }
-  ngOnInit() {
-
-  }
-  ngOnDestroy() {
-    $('#modalTrailer').modal('hide');
-  }
-  ngAfterViewInit() {
-    $('#modalTrailer').on('hidden.bs.modal', () => {
-      $('#player').each((index) => {
-        $('#player').attr('src', null);
-        return false;
-      });
-    });
-  }
-
-  @ViewChild('owlElement') owlElement: OwlCarousel;
-
-
-  fun() {
-    this.owlElement.next([200])
-    //duration 200ms
-  }
-
 
 
 }

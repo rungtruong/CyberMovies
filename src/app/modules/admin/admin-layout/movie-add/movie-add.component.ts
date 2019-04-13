@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from 'src/app/_core/services/movie.service';
@@ -13,9 +13,9 @@ export class MovieAddComponent implements OnInit {
     label: "Quản Lý Phim",
     version: "1.0",
     items: [
-      { name: "Quản lý phim", url: "/admin/moviemanage" },
-      { name: "Danh sách phim", url: "/admin/moviemanage" },
-      { name: "Thêm Phim", url: "/admin/movieadd" },
+      { name: "Quản lý phim", url: "" },
+      { name: "Danh sách phim", url: "" },
+      { name: "Thêm Phim", url: "" },
     ]
   }
   Movie: any = {
@@ -25,9 +25,18 @@ export class MovieAddComponent implements OnInit {
   constructor(private toastr: ToastrService, private activedRoute: ActivatedRoute, private router: Router, private movieService: MovieService) { }
 
   ngOnInit() {
+    this.Movie.NgayKhoiChieu = new Date().toISOString().substr(0, 10);
+    // console.log(this.Movie.NgayKhoiChieu);
+  }
+
+  showdate(date) {
+    console.log(date);
 
   }
   validate() {
+
+
+
     if (!this.Movie.MaPhim) {
       this.toastr.error("Bạn chưa nhập mã phim!");
       return false;
@@ -44,8 +53,8 @@ export class MovieAddComponent implements OnInit {
       this.toastr.error("Bạn chưa nhập mô tả về phim!");
       return false;
     }
-    if (!this.Movie.HinhAnh && $('#imgMovie')[0].files[0] == 0) {
-      this.toastr.error("Bạn chưa nhập link hình ảnh!");
+    if ($('#imgMovie')[0].files.length == 0) {
+      this.toastr.error("Bạn chưa chọn hình ảnh!");
       return false;
     }
     if (!this.Movie.Trailer) {
@@ -54,32 +63,51 @@ export class MovieAddComponent implements OnInit {
     }
     return true;
   }
+  @ViewChild("files") files: any;
   addMovie() {
+    // console.log(this.files)
     if (this.validate()) {
+      let formData = new FormData($("#formAddMovie")[0]);
+      formData.append("MaNhom", "GP06");
+      formData.append("DanhGia", this.Movie.DanhGia);
+      let objectMovie = {};
+      formData.forEach(function (value, key) {
+        objectMovie[key] = value;
+      });
+      objectMovie["HinhAnh"] = "";
 
 
-      //upload file to server
-      let fileformdata = new FormData();
-      fileformdata.append("TenPhim", this.Movie.TenPhim);
-      fileformdata.append("Files", $('#imgMovie')[0].files[0]);
-      this.movieService.uploadFileAnhPhim(fileformdata).subscribe(data => {
-        
-        let formData = new FormData($("#formAddMovie")[0]);
-        formData.append("MaNhom", "GP06");
-        formData.append("DanhGia", this.Movie.DanhGia);
-        let objectMovie = {};
-        formData.forEach(function (value, key) {
-          objectMovie[key] = value;
-        });
 
-        // upload movie to server
+
+      if ($('#imgMovie')[0].files.length > 0) {
+        if (objectMovie["HinhAnh"].trim() === "") {
+          objectMovie["HinhAnh"] = this.files.nativeElement.files[0].name;
+        }
+        //upload file to server
+        let fileformdata = new FormData();
+        fileformdata.append("TenPhim", this.Movie.TenPhim);
+        fileformdata.append("Files", $('#imgMovie')[0].files[0]);
+        this.movieService.uploadFileAnhPhim(fileformdata).subscribe(data => {
+
+          // upload movie to server
+          this.movieService.themPhim(objectMovie).subscribe((data) => {
+            if (typeof data === "object") {
+              this.toastr.success(`Thêm phim ${data.TenPhim} thành công!`);
+              this.router.navigate(['/admin/moviemanage']);
+            } else this.toastr.error(data);
+          })
+        })
+
+      } else {
         this.movieService.themPhim(objectMovie).subscribe((data) => {
           if (typeof data === "object") {
             this.toastr.success(`Thêm phim ${data.TenPhim} thành công!`);
             this.router.navigate(['/admin/moviemanage']);
           } else this.toastr.error(data);
         })
-      })
+      }
+
+
 
 
 

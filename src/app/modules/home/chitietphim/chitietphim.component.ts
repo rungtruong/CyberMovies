@@ -1,47 +1,42 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MovieService } from 'src/app/_core/services/movie.service';
-import * as $ from 'jquery';
+declare var $;
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-chitietphim',
   templateUrl: './chitietphim.component.html',
   styleUrls: ['./chitietphim.component.scss']
 })
-export class ChitietphimComponent implements OnInit {
+export class ChitietphimComponent implements OnInit, AfterViewInit {
+  currentUrl: any;
+  isShowModal: boolean;
   stars: Array<any> = [];
   stars_o: Array<any> = [];
   isSelelect = 1;
   phim: any = { LichChieu: [], MoTa: "" };
-  autoPlay = false;
   today = new Date();
   tomorrow = new Date();
-  videoUrl: SafeResourceUrl;
-  currentUrl: any;
   private MaPhim;
   private subParam: Subscription;
-  constructor(private activateRoute: ActivatedRoute, private movieService: MovieService, private sanitizer: DomSanitizer) { }
+
+  constructor(private activateRoute: ActivatedRoute, private movieService: MovieService) { }
 
   ngOnInit() {
-    $('html, body').animate({
-      scrollTop: $("body").offset().top - 70
-    }, 500);
     this.subParam = this.activateRoute.params.subscribe((param) => {
       this.MaPhim = param.id;
       //Gọi service lấy dưữ lịẹệu phim gan vao thuoc tinh phim binding len giao dien
       this.LayChiTietPhim(this.MaPhim);
     })
 
-
-  }
-  scrollBookingList() {
-
-    $('html, body').animate({
-      scrollTop: $("#listSession").offset().top - 70
-    }, 500);
   }
 
+  ngAfterViewInit() {
+    $('#modalTrailerMovieDetail').on('hidden.bs.modal', () => {
+      this.isShowModal = false;
+    });
+  }
   LayChiTietPhim(id: number) {
     this.movieService.chiTietPhim(id).subscribe(res => {
       this.phim = res;
@@ -52,11 +47,7 @@ export class ChitietphimComponent implements OnInit {
       }
     })
   }
-  scrollTrailer() {
-    $('html, body').animate({
-      scrollTop: $("#trailer").offset().top - 70
-    }, 500);
-  }
+
 
   public renderStar(star: number) {
     for (let i = 0; i < star; i++) {
@@ -66,4 +57,22 @@ export class ChitietphimComponent implements OnInit {
       this.stars_o.push(i);
     }
   }
+
+
+  getUrlEvent(event) {
+    if (event) {
+      this.currentUrl = event;
+      $('#modalTrailerMovieDetail').modal('show');
+    } else {
+      $('#modalTrailerMovieDetail').modal('hide');
+    }
+    if ($('#modalTrailerMovieDetail').modal('show')) {
+      this.isShowModal = true;
+    } else {
+      this.isShowModal = false;
+      this.currentUrl = "";
+    }
+  }
+
+
 }

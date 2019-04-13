@@ -5,10 +5,12 @@
         <div class="movie-img sticky-sb">
           <img src="{{phim.HinhAnh}}" alt="">
           <div class="movie-btn text-center">
-            <div><button class="btn  my-btn w-75 my-3"><i class="fa fa-play"></i> Xem
+            <div><button class="btn  my-btn w-75 my-3" (click)="getUrlEvent(phim.Trailer)"><i class="fa fa-play"></i>
+                Xem
                 Trailer</button>
             </div>
-            <div><button class="btn  my-btn w-75" (click)="isSelelect=1"><i class="fa fa-ticket"></i> Mua Vé</button>
+            <div *ngIf="phim.LichChieu.length>0"><button class="btn  my-btn w-75" (click)="isSelelect=1"><i
+                  class="fa fa-ticket"></i> Mua Vé</button>
             </div>
           </div>
         </div>
@@ -36,10 +38,13 @@
           <div class="movie-tabs">
             <div class="tabs">
               <ul class="tab-links tabs-mv">
-                <li><a (click)="isSelelect=1" [ngClass]="{'active': isSelelect==1}" *ngIf="phim.LichChieu.length>0" title="Chọn lịch chiếu">Lịch
+                <li><a (click)="isSelelect=1" [ngClass]="{'active': isSelelect==1}" *ngIf="phim.LichChieu.length>0"
+                    title="Chọn lịch chiếu">Lịch
                     Chiếu</a></li>
-                <li><a (click)="isSelelect=2" [ngClass]="{'active': isSelelect==2}" title="Xem thông tin phim">Thông Tin </a></li>
-                <li><a (click)="isSelelect=3" [ngClass]="{'active': isSelelect==3}" title="Xem đánh giá">Đánh Giá</a></li>
+                <li><a (click)="isSelelect=2" [ngClass]="{'active': isSelelect==2}" title="Xem thông tin phim">Thông Tin
+                  </a></li>
+                <li><a (click)="isSelelect=3" [ngClass]="{'active': isSelelect==3}" title="Xem đánh giá">Đánh Giá</a>
+                </li>
               </ul>
               <div class="tab-content">
                 <div class="row">
@@ -78,6 +83,20 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Play Movie Trailer -->
+<div id="modalTrailerMovieDetail" class="modal fade modalTrailer" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <img src="./assets/img/close.png" alt="">
+      </button>
+      <div>
+        <app-play-movie-trailer *ngIf="isShowModal" [srcTrailer]="currentUrl"></app-play-movie-trailer>
       </div>
     </div>
   </div>

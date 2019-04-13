@@ -5,7 +5,7 @@
   </h1>
   <ol class="breadcrumb">
     <li>
-      <a [href]="homeUrl" class="fa fa-dashboard"> Admin</a>
+      <a [href]="homeUrl"> <i class="fa fa-dashboard"></i> Admin</a>
     </li>
     <li class="pointer" *ngFor="let item of data.items; let i = index"
       [ngClass]="i == data.items.length -1? 'active': ''">

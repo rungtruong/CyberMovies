@@ -28,8 +28,8 @@
               </div>
               <div class="form-group">
                 <label for="">Ngày Khởi Chiếu</label>
-                <input type="date" step="1" name="NgayKhoiChieu"
-                  [(ngModel)]="Movie.NgayKhoiChieu" id="" class="form-control">
+                <input type="date" step="1" name="NgayKhoiChieu" [(ngModel)]="Movie.NgayKhoiChieu" id="NgayKhoiChieu"
+                  class="form-control">
               </div>
               <div class="form-group">
                 <label for="">Mô Tả</label>
@@ -47,11 +47,22 @@
               </div>
               <div class="form-group">
                 <label for="">Hình Ảnh</label>
-                <input type="text" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" id="imgMovie" class="form-control">
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="file" #files accept="image/*" id="imgMovie" class="form-control-file mt-2"
+                      (change)='isSelectImage=true'>
+                  </div>
+                  <div class="col-md-6" *ngIf="!isSelectImage">
+                    <img class=" d-block mx-auto" src="{{Movie.HinhAnh}}" alt="" width="150px">
+                    <p class="d-block text-center mt-1">Hình ảnh hiện tại</p>
+                  </div>
+                </div>
+                <!-- <input type="text" name="HinhAnh" [(ngModel)]="Movie.HinhAnh" id="imgMovie" class="form-control"> -->
+
               </div>
               <div class="form-group">
                 <label for="">Trailer</label>
-                <input type="text" name="Trailer" [(ngModel)]="Movie.Trailer" id="" class="form-control">
+                <input type="url" name="Trailer" [(ngModel)]="Movie.Trailer" id="" class="form-control">
               </div>
             </div>
           </div>

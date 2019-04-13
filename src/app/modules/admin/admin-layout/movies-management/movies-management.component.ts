@@ -16,8 +16,8 @@ export class MoviesManagementComponent implements OnInit {
     label: "Quản Lý Phim",
     version: "1.0",
     items: [
-      { name: "Quản lý phim", url: "/admin/moviemanage" },
-      { name: "Danh sách phim", url: "/admin/moviemanage" }
+      { name: "Quản lý phim", url: "" },
+      { name: "Danh sách phim", url: "" }
     ]
   }
 

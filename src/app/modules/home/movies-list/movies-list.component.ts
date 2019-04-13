@@ -6,7 +6,7 @@ declare var $;
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.scss']
 })
-export class MoviesListComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MoviesListComponent implements OnInit, AfterViewInit {
   viewStatus: boolean = true;
 
   currentUrl: any;
@@ -15,16 +15,8 @@ export class MoviesListComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    $('#modalTrailerMovieList').on('hidden.bs.modal', () => {
-      $('#player').each(function (index) {
-        $(this).attr('src', null);
-        return false;
-      });
-    });
   }
-  ngOnDestroy() {
-    $('#modalTrailerMovieList').modal('hide');
-  }
+ 
   getUrlEvent(event) {
     if (event) {
       this.currentUrl = event;
@@ -40,11 +32,12 @@ export class MoviesListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
   ngAfterViewInit() {
-    $('.modal').on('hidden.bs.modal', () => {
-      $('#player').each((index) => {
-        $('#player').attr('src', null);
-        return false;
-      });
+    $('#modalTrailerMovieList').on('hidden.bs.modal', () => {
+      // $('#player').each((index) => {
+      //   $('#player').attr('src', null);
+      //   return false;
+      // });
+      this.isShowModal = false;
     });
   }
 
